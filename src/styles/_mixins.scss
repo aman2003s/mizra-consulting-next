@@ -1,0 +1,23 @@
+@import './variables';
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Section padding
+@mixin section-padding {
+  padding: $space-xl $space-md;
+  @media (max-width: 600px) {
+    padding: $space-lg $space-sm;
+  }
+}
+
+// Card shadow
+@mixin card-shadow {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  border-radius: 1rem;
+  background: $color-footer;
+} 

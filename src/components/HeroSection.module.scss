@@ -1,0 +1,86 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+.hero {
+  @include section-padding;
+  background: $color-bg-gradient;
+  text-align: center;
+  color: $color-white;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.headline {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+.underline {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -0.3em;
+  width: 100%;
+  height: 0.25em;
+  background: linear-gradient(90deg, $color-primary, $color-secondary);
+  border-radius: 2px;
+  transform-origin: left;
+}
+.subheadline {
+  font-size: $font-md;
+  color: $color-grey;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ctas {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.primaryBtn, .secondaryBtn {
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: $font-sm;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.primaryBtn {
+  background: $color-primary;
+  color: $color-bg;
+  &:hover {
+    background: $color-secondary;
+    color: $color-white;
+  }
+}
+.secondaryBtn {
+  background: transparent;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+  &:hover {
+    background: $color-primary;
+    color: $color-bg;
+  }
+}
+@media (max-width: 600px) {
+  .headline {
+    font-size: 1.5rem;
+  }
+  .ctas {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .primaryBtn, .secondaryBtn {
+    width: 100%;
+    font-size: $font-xs;
+    padding: 0.75rem 1rem;
+  }
+} 

@@ -1,0 +1,79 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+.industries {
+  @include section-padding;
+  background: $color-footer;
+  color: $color-white;
+  text-align: center;
+}
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: $color-accent;
+}
+.cardsWrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.card {
+  @include card-shadow;
+  background: $color-bg;
+  color: $color-white;
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    transform: translateY(-6px) scale(1.03);
+    .learnMore {
+      color: $color-primary;
+    }
+  }
+}
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.learnMore {
+  color: $color-grey;
+  font-size: $font-xs;
+  margin-top: 0.5rem;
+  transition: color 0.2s;
+}
+@media (max-width: 1000px) {
+  .cardsWrap {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .heading {
+    font-size: 1.25rem;
+  }
+  .cardsWrap {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .card {
+    padding: 1.25rem 0.5rem;
+  }
+  .icon {
+    font-size: 2rem;
+  }
+} 

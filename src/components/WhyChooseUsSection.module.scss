@@ -1,0 +1,57 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+
+.whyChooseUs {
+  @include section-padding;
+  background: $color-bg;
+  color: $color-white;
+  text-align: center;
+}
+.circleText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem auto;
+}
+.circleSvg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  transform-box: fill-box;
+}
+.circleSvgRotating {
+  animation: rotateCircle 16s linear infinite;
+  transform-origin: 130px 130px;
+}
+
+@keyframes rotateCircle {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.points {
+  list-style: decimal-leading-zero inside;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+  li {
+    font-size: $font-md;
+    color: $color-grey;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 600px) {
+  .circleSvg {
+    width: 140px;
+    height: 140px;
+  }
+  .circleSvgRotating {
+    transform-origin: 70px 70px;
+  }
+  .points li {
+    font-size: $font-sm;
+  }
+} 

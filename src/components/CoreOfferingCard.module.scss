@@ -1,0 +1,41 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+.card {
+  @include card-shadow;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+  min-width: 220px;
+  max-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: $color-primary;
+}
+.title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: $color-white;
+}
+.desc {
+  font-size: $font-sm;
+  color: $color-grey;
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .card {
+    padding: 1.25rem 0.5rem;
+    min-width: 160px;
+    max-width: 100%;
+  }
+  .icon {
+    font-size: 2rem;
+  }
+} 
