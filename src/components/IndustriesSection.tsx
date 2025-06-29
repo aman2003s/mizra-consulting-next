@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "./IndustriesSection.module.scss";
-
+import Image from "next/image";
+import purpleBg from "../../public/purple-bg.svg";
 const industries = [
   { title: "Startups & SaaS" },
   { title: "Ed tech and healthcare" },
@@ -12,6 +13,9 @@ const industries = [
 export default function IndustriesSection() {
   return (
     <section className={styles.industries} id="industries">
+      <div className={styles.purpleBg}>
+        <Image src={purpleBg} alt="Industries" style={{width:"100%",height:"300%"}}/>
+      </div>
       <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

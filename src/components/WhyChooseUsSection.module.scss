@@ -2,27 +2,41 @@
 @import '../styles/mixins';
 
 .whyChooseUs {
-  @include section-padding;
-  background: $color-bg;
+  padding: 50px 0;
+  @media (max-width: 600px) {
+    padding: 2rem 0.5rem;
+  }
   color: $color-white;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 0 0 2rem;
+  gap: 4rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.leftSection {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .circleText {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 2rem auto;
 }
+
 .circleSvg {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-  transform-box: fill-box;
-}
-.circleSvgRotating {
   animation: rotateCircle 16s linear infinite;
-  transform-origin: 130px 130px;
 }
 
 @keyframes rotateCircle {
@@ -30,28 +44,84 @@
     transform: rotate(360deg);
   }
 }
+
+.rightSection {
+  flex: 0 0 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .points {
-  list-style: decimal-leading-zero inside;
+  list-style: none;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   text-align: left;
   li {
-    font-size: $font-md;
-    color: $color-grey;
-    margin-bottom: 0.75rem;
-    line-height: 1.5;
+    position: relative;
+    color: #F8F8FA;
+    font-feature-settings: 'dlig' on;
+    font-family: var(--font-source-sans-pro), sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 48px;
+    white-space: nowrap;
+    
+    &::before {
+      content: "0" counter(point-counter);
+      counter-increment: point-counter;
+      position: absolute;
+      right: 100%;
+      top: -16px;
+      color: #F8F8FA;
+      font-feature-settings: 'dlig' on;
+      font-family: var(--font-source-sans-pro), sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1;
+      margin-right: 4px;
+    }
+  }
+  
+  counter-reset: point-counter;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .leftSection {
+    order: 2;
+  }
+  
+  .rightSection {
+    order: 1;
+    justify-content: center;
+  }
+  
+  .points {
+    text-align: center;
   }
 }
+
 @media (max-width: 600px) {
   .circleSvg {
-    width: 140px;
-    height: 140px;
-  }
-  .circleSvgRotating {
-    transform-origin: 70px 70px;
+    width: 200px;
+    height: 200px;
   }
   .points li {
-    font-size: $font-sm;
+    font-size: 20px;
+    line-height: 18px;
+    
+    &::before {
+      font-size: 12px;
+      line-height: 1;
+    }
   }
 } 

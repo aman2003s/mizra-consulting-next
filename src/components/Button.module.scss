@@ -1,0 +1,121 @@
+@import '../styles/variables';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-source-sans-pro), sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .text {
+    white-space: nowrap;
+  }
+}
+
+// Button sizes
+.sm {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.md {
+  padding: 16px 40px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.lg {
+  padding: 16px 40px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+// Button types
+.primary {
+  background: linear-gradient(281deg, rgba(238, 92, 31, 0.20) -75.53%, rgba(54, 27, 93, 0.20) 103.47%);
+  border: 2px solid #EE5C1F;
+  color: #F8F8FA;
+  transition: background 0.6s, color 0.2s;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(281deg, #EE5C1F -75.53%, #361B5D 103.47%);
+    color: #F8F8FA;
+  }
+}
+
+.secondary {
+  background: $color-secondary;
+  color: $color-white;
+  border: 2px solid $color-secondary;
+
+  &:hover:not(:disabled) {
+    background: darken($color-secondary, 10%);
+    border-color: darken($color-secondary, 10%);
+  }
+}
+
+.outline {
+  background: transparent;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+
+  &:hover:not(:disabled) {
+    background: $color-primary;
+    color: $color-bg;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: $color-white;
+  border: 2px solid transparent;
+
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+// Full width
+.fullWidth {
+  width: 100%;
+}
+
+// Responsive adjustments
+@media (max-width: 600px) {
+  .lg {
+    height: 56px;
+    padding: 0 32px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+  
+  .md {
+    height: 44px;
+    padding: 0 20px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+} 

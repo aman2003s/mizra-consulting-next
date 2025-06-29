@@ -2,55 +2,70 @@
 @import '../styles/mixins';
 
 .navbar {
-  @include flex-center;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: $space-md $space-lg;
-  background: $color-bg;
+  padding: 40px;
   color: $color-white;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 1px;
+
+.navigationContainer {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: space-between;
+  padding: $space-md;
+  border-radius: 20px;
+  backdrop-filter: blur(24px);
+  background: linear-gradient(110deg, rgba(248, 190, 165, 0.01) 23.9%, rgba(252, 221, 157, 0.01) 77.63%);
+  border: 1px solid #F8BEA5;
+  width: 100%;
 }
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 88px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
 .links {
   display: flex;
   gap: $space-lg;
   list-style: none;
   margin: 0;
   padding: 0;
+  flex: 1;
+
   li a {
     color: $color-white;
     text-decoration: none;
     font-size: $font-sm;
     transition: color 0.2s;
+
     &:hover {
       color: $color-primary;
     }
   }
 }
+
 .cta {
-  .bookBtn {
-    background: $color-primary;
-    color: $color-bg;
-    padding: 0.5rem 1.25rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-    &:hover {
-      background: $color-secondary;
-      color: $color-white;
-    }
-  }
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
+
 .menuBtn {
   display: none;
   background: none;
@@ -59,15 +74,19 @@
   cursor: pointer;
   z-index: 120;
 }
+
 @media (max-width: 800px) {
+
   .links,
   .cta {
     display: none;
   }
+
   .menuBtn {
     display: block;
   }
 }
+
 .mobileMenu {
   position: fixed;
   top: 0;
@@ -76,35 +95,40 @@
   max-width: 320px;
   height: 100vh;
   background: $color-footer;
-  box-shadow: -2px 0 16px rgba(0,0,0,0.18);
+  box-shadow: -2px 0 16px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 2.5rem 1.5rem 1.5rem 1.5rem;
   z-index: 110;
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0 0 2rem 0;
     width: 100%;
+
     li {
       margin-bottom: 1.5rem;
+
       a {
         color: $color-white;
         font-size: 1.1rem;
         text-decoration: none;
         font-weight: 500;
         transition: color 0.2s;
+
         &:hover {
           color: $color-primary;
         }
       }
     }
   }
+
   .bookBtn {
     width: 100%;
     text-align: center;
     font-size: 1.1rem;
     padding: 0.75rem 0;
   }
-} 
+}

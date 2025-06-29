@@ -1,27 +1,31 @@
 import styles from "./Footer.module.scss";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.topRow}>
+      <div className={styles.logoSection}>
         <div className={styles.logoBlock}>
-          <span className={styles.logo} role="img" aria-label="Mizra sun">🌅</span>
-          <div className={styles.brand}>Mizra Consulting</div>
-          <div className={styles.slogan}>From Ideation to Execution. We Design, Build & Scale Digital Products That Deliver Results.</div>
+          <Image 
+            src="/mizra-logo.svg" 
+            alt="Mizra Logo" 
+            width={157.748} 
+            height={108.47}
+            className={styles.logoImage}
+          />
+          <div className={styles.brandText}>
+            <Image 
+              src="/mizra-text.svg" 
+              alt="Mizra" 
+              width={178.015} 
+              height={53.544}
+              className={styles.mizraText}
+            />
+            <div className={styles.consultingText}>CONSULTING</div>
+          </div>
         </div>
-        <div className={styles.linksBlock}>
-          <div>
-            <div className={styles.linksTitle}>The Company</div>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#case-studies">Case Studies</a>
-          </div>
-          <div>
-            <div className={styles.linksTitle}>Support</div>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Book A Call</a>
-            <a href="#contact">Contact Us</a>
-          </div>
+        <div className={styles.tagline}>
+          From Idea to Execution - We Design, Build & Scale Digital Products That Deliver Results
         </div>
       </div>
       <div className={styles.bottomRow}>

@@ -1,60 +1,69 @@
 @import '../styles/variables';
 @import '../styles/mixins';
+
 .footer {
-  background: $color-footer;
   color: $color-white;
   padding: 2.5rem 1rem 1.5rem 1rem;
   font-size: $font-xs;
 }
-.topRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  max-width: 1200px;
+
+.logoSection {
+  max-width: 358px;
   margin: 0 auto 2rem auto;
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
 }
+
 .logoBlock {
-  flex: 1 1 250px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.logoImage {
+  width: 157.748px;
+  height: 108.47px;
+}
+
+.brandText {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
-.logo {
-  font-size: 2rem;
-  margin-bottom: 0.2rem;
-}
-.brand {
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-.slogan {
-  color: $color-grey;
-  font-size: $font-xs;
-  margin-top: 0.2rem;
-}
-.linksBlock {
-  display: flex;
-  gap: 2.5rem;
-  flex: 2 1 350px;
   justify-content: flex-end;
-  a {
-    display: block;
-    color: $color-white;
-    text-decoration: none;
-    margin-bottom: 0.4rem;
-    transition: color 0.2s;
-    &:hover {
-      color: $color-primary;
-    }
-  }
 }
-.linksTitle {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: $color-primary;
+
+.mizraText {
+  width: 178.015px;
+  height: 53.544px;
 }
+
+.consultingText {
+  color: #FFF;
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 25px;
+  letter-spacing: 2.558px;
+  display: flex;
+  align-items: center;
+}
+
+.tagline {
+  color: #F8F8FA;
+  text-align: center;
+  font-feature-settings: 'dlig' on;
+  font-family: var(--font-source-sans-pro), sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  max-width: 358px;
+  opacity: 0.5;
+}
+
 .bottomRow {
   display: flex;
   justify-content: space-between;
@@ -66,6 +75,7 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
+
 .legalLinks {
   display: flex;
   gap: 1.5rem;
@@ -78,19 +88,18 @@
     }
   }
 }
+
 .copyright {
   color: $color-grey;
 }
+
 @media (max-width: 800px) {
-  .topRow {
+  .logoBlock {
     flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-start;
+    gap: 1rem;
+    text-align: center;
   }
-  .linksBlock {
-    justify-content: flex-start;
-    gap: 2rem;
-  }
+  
   .bottomRow {
     flex-direction: column;
     gap: 0.5rem;

@@ -1,23 +1,76 @@
 @import '../styles/variables';
 @import '../styles/mixins';
 .contactForm {
-  @include section-padding;
-  background: $color-bg;
+  @media (max-width: 600px) {
+    padding: 2rem 0.5rem;
+  }
   color: $color-white;
-  text-align: center;
+  text-align: left;
+  position: relative;
+  margin: 2rem auto;
+  max-width: 800px;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: linear-gradient(281deg, #EE5C1F -75.53%, #361B5D 103.47%);
+    filter: blur(75px);
+    border-radius: 36.573px;
+    z-index: -2;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #111822;
+    border-radius: 36.573px;
+    z-index: -1;
+  }
 }
+
+.card {
+  position: relative;
+  z-index: 1;
+  padding: 40px 74px;
+  border-radius: 36.573px;
+}
+
 .heading {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  color: $color-primary;
+  color: #FFF;
+  leading-trim: both;
+  text-edge: cap;
+  font-feature-settings: 'dlig' on;
+  font-family: var(--font-source-sans-pro), sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: capitalize;
+}
+.subheading {
+  color: #FFF;
+  leading-trim: both;
+  text-edge: cap;
+  font-feature-settings: 'dlig' on;
+  font-family: var(--font-source-sans-pro), sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%;
+  margin-top: 21px;
+  margin-bottom: 60px;
 }
 .form {
-  max-width: 500px;
   margin: 0 auto;
-  background: $color-footer;
   border-radius: 1.5rem;
-  padding: 2rem 1.5rem;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
@@ -30,33 +83,82 @@
     flex: 1;
   }
 }
+
+.inputGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  color: #FFF;
+  font-feature-settings: 'dlig' on;
+  font-family: var(--font-source-sans-pro), sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  text-transform: capitalize;
+  text-align: left;
+}
+
 .form input,
 .form textarea {
-  background: $color-bg;
-  color: $color-white;
-  border: 1px solid $color-grey;
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  font-size: $font-sm;
+  background: transparent;
+  color: #FFF;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0;
+  font-size: 16px;
+  line-height: 120%;
+  font-weight: 300;
   outline: none;
-  transition: border 0.2s;
+  transition: border-bottom 0.2s;
+  font-family: var(--font-source-sans-pro), sans-serif;
+  resize: none;
+  width: 100%;
+  leading-trim: both;
+  text-edge: cap;
+  font-feature-settings: 'dlig' on;
+  font-style: normal;
+  text-transform: lowercase;
+  
+  &::placeholder {
+    color: #FFF;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: 'dlig' on;
+    font-family: var(--font-source-sans-pro), sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+  
   &:focus {
-    border-color: $color-primary;
+    border-bottom-color: #EE5C1F;
   }
 }
 .form .submitBtn {
-  background: $color-primary;
-  color: $color-bg;
-  border: none;
-  border-radius: 2rem;
-  padding: 0.75rem 2rem;
+  background: linear-gradient(281deg, rgba(238, 92, 31, 0.20) -75.53%, rgba(54, 27, 93, 0.20) 103.47%);
+  border: 2px solid #EE5C1F;
+  color: #F8F8FA;
+  border-radius: 12px;
+  padding: 16px 40px;
+  font-size: 16px;
+  line-height: 24px;
   font-weight: 600;
-  font-size: $font-sm;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.6s, color 0.2s;
+  font-family: var(--font-source-sans-pro), sans-serif;
+  width: 300px;
+  margin: 38px auto 0;
+  
   &:hover {
-    background: $color-secondary;
-    color: $color-white;
+    background: linear-gradient(281deg, #EE5C1F -75.53%, #361B5D 103.47%);
+    color: #F8F8FA;
   }
 }
 .thankyou {

@@ -21,18 +21,26 @@ export default function WhatWeDoSection() {
         transition={{ delay: 0.2, duration: 0.7 }}
         className={styles.description}
       >
-        <b>At Mizra Consulting</b>, we blend strategic product thinking with full-stack development, automation, and analytics.<br/>
+        <b>At Mizra Consulting</b>, we blend strategic product thinking with full-stack development, automation, and analytics.
+      </motion.p>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.3, duration: 0.7 }}
+        className={styles.subDescription}
+      >
         Whether it&apos;s launching your MVP, setting up a CRM, or scaling SaaS growth.
       </motion.p>
-      <motion.div
+      <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.4, duration: 0.7 }}
         className={styles.tagline}
       >
-        <b>We&apos;re Your Execution Partner</b>
-      </motion.div>
+        &ldquo; We&apos;re Your Execution Partner &rdquo;
+      </motion.p>
     </section>
   );
 } 

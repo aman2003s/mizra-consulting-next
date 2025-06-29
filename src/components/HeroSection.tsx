@@ -1,24 +1,39 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "./HeroSection.module.scss";
+import Button from "./Button";
+import Image from "next/image";
+import startHereText from "../../public/start-here-text.svg";
 
 export default function HeroSection() {
   return (
     <section className={styles.hero} id="hero">
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className={styles.headline}
+        transition={{ delay: 0.1, duration: 0.7 }}
+        className={styles.subtitle}
       >
-        PRODUCT-LED GROWTH
-        <motion.span
-          className={styles.underline}
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 0.7, duration: 0.5 }}
-        />
-      </motion.h1>
+        "From Idea to Execution - We Design, Build & Scale Digital Products That Deliver Results"
+      </motion.p>
+      <div className={styles.headlineContainer}>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className={styles.startHereImage}
+        >
+          <Image src={startHereText} alt="Start Here" width={150} height={60} />
+        </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className={styles.headline}
+        >
+          PRODUCT-LED GROWTH
+        </motion.h1>
+      </div>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -27,14 +42,37 @@ export default function HeroSection() {
       >
         Build smarter, Automate faster, Scale without limits.
       </motion.p>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.7 }}
+        className={styles.description}
+      >
+        We partner with startups and enterprises to launch powerful digital products and automate business operations using ERP, CRM, AI, cloud, and modern tech stacks.
+      </motion.p>
       <motion.div
         className={styles.ctas}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.7 }}
       >
-        <a href="#contact" className={styles.primaryBtn}>Book Free Consultation</a>
-        <a href="https://wa.me/" target="_blank" rel="noopener" className={styles.secondaryBtn}>Whatsapp Us</a>
+        <Button type="primary" size="lg" href="#contact">
+          Book Free Consultation
+        </Button>
+        <Button type="primary" size="lg" href="https://wa.me/" target="_blank" rel="noopener">
+          Whatsapp Us
+        </Button>
+      </motion.div>
+      <motion.div
+        className={styles.marqueeContainer}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.7 }}
+      >
+        <div className={styles.marquee}>
+          <span>MIZRA CONSULTING • MIZRA CONSULTING</span>
+          <span>MIZRA CONSULTING • MIZRA CONSULTING</span>
+        </div>
       </motion.div>
     </section>
   );

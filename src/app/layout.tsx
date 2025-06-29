@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins, Source_Sans_3, Playfair_Display } from "next/font/google";
 import './globals.scss'
 import Navbar from '../components/Navbar';
+import Image from "next/image";
+import homeBackground from "../../public/bg-wireframe.svg";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,6 +13,26 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const sourceSansPro = Source_Sans_3({
+  variable: "--font-source-sans-pro",
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +47,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} ${sourceSansPro.variable} ${playfairDisplay.variable}`}>
+        <div className="homeBackgroundImage">
+          <Image src={homeBackground} alt="Home Background" />
+        </div>
         <Navbar />
         {children}
       </body>
