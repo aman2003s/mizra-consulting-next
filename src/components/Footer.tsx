@@ -1,7 +1,7 @@
 import styles from "./Footer.module.scss";
 import Image from "next/image";
 import mizraLogo from '../../public/mizra-logo.svg';
-import mizraLogoText from '../../public/mizra-text.svg';
+import mizraLogoText from '../../public/mizra-text-logo.svg';
 
 const navigationLinks = {
   company: [
