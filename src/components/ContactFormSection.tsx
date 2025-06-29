@@ -24,7 +24,7 @@ export default function ContactFormSection() {
           transition={{ delay: 0.1, duration: 0.7 }}
           className={styles.subheading}
         >
-          Let's create something epic together
+          Let&apos;s create something epic together
         </motion.p>
         <motion.form
           className={styles.form}

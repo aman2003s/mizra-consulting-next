@@ -14,7 +14,7 @@ export default function HeroSection() {
         transition={{ delay: 0.1, duration: 0.7 }}
         className={styles.subtitle}
       >
-        "From Idea to Execution - We Design, Build & Scale Digital Products That Deliver Results"
+        &ldquo;From Idea to Execution - We Design, Build & Scale Digital Products That Deliver Results&rdquo;
       </motion.p>
       <div className={styles.headlineContainer}>
         <motion.div
