@@ -61,13 +61,13 @@ export const metadata: Metadata = {
         type: "image/svg+xml",
       },
       {
-        url: "/favicon.ico",
+        url: "/mizra-logo.png",
+        type: "image/png",
         sizes: "32x32",
-        type: "image/x-icon",
       },
     ],
-    shortcut: "/favicon.ico",
-    apple: "/mizra-logo.svg",
+    shortcut: "/mizra-logo.png",
+    apple: "/mizra-logo.png",
   },
   manifest: "/site.webmanifest",
 };
