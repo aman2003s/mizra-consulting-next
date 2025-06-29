@@ -37,7 +37,7 @@ export default function CoreOfferingsSection() {
       const cardCount = cardBlock.children.length;
       
       // Set padding bottom based on number of cards (exactly like the example)
-      cardBlock.style.paddingBottom = `${Math.max(cardCount, 1)}em`;
+      cardBlock.style.paddingBottom = `${Math.max(cardCount, 14)}em`;
       
       // Set translateY for each card (exactly like the example)
       Array.from(cardBlock.children).forEach((card, i) => {

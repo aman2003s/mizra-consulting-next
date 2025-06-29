@@ -51,7 +51,7 @@
 .cardsSection {
   flex: 1;
   position: relative;
-  min-height: 100vh;
+  min-height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,7 +63,7 @@
   border-radius: 16px;
   background-color: transparent;
   max-width: 800px;
-  height: 100vh;
+  height: 800px;
   overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 40px;
