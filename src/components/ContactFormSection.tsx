@@ -16,7 +16,7 @@ export default function ContactFormSection() {
     const formData = new FormData(form);
 
     // Convert FormData to a plain JavaScript object
-    const data:any = {};
+    const data: Record<string, FormDataEntryValue> = {};
     formData.forEach((value, key) => {
       // Ensure keys match your Google Sheet headers
       data[key] = value;
@@ -24,7 +24,7 @@ export default function ContactFormSection() {
     console.log("Data object before stringify:", formData);
     console.log("JSON stringified body:", JSON.stringify(formData));
     try {
-      const response = await fetch(
+      await fetch(
         "https://script.google.com/macros/s/AKfycbylV_jvJu3QNYO49AM5TlU4tTj5u1m69sL3pdWvPveUt1yYjDIMGLrM59rC6iBAiYNQ/exec",
         {
           method: "POST",
@@ -53,10 +53,14 @@ export default function ContactFormSection() {
 
       setSubmitted(true);
       form.reset();
-    } catch (err: any) {
+    } catch (err: unknown) {
       // This catch block will primarily handle network errors or CORS issues
-      setError(err.message || "Failed to send data. Please check your network or try again.");
-      console.error("Fetch error:", err);
+      let errorMessage = "Failed to send data. Please check your network or try again.";
+      if (err instanceof Error) {
+        errorMessage = err.message;
+        console.error("Fetch error:", err);
+      }
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
