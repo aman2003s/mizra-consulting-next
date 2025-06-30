@@ -7,54 +7,73 @@ export default function ContactFormSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [formErrors, setFormErrors] = useState<{
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phone?: string;
+    message?: string;
+  }>({});
+
+  function validateForm(data: Record<string, FormDataEntryValue>) {
+    const errors: typeof formErrors = {};
+    if (!data.firstName || String(data.firstName).trim() === "") {
+      errors.firstName = "First name is required.";
+    }
+    if (!data.lastName || String(data.lastName).trim() === "") {
+      errors.lastName = "Last name is required.";
+    }
+    if (!data.email || String(data.email).trim() === "") {
+      errors.email = "Email is required.";
+    } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(data.email))) {
+      errors.email = "Enter a valid email address.";
+    }
+    if (!data.phone || String(data.phone).trim() === "") {
+      errors.phone = "Phone number is required.";
+    } else if (!/^\+?\d{7,15}$/.test(String(data.phone).replace(/\D/g, ""))) {
+      errors.phone = "Enter a valid phone number.";
+    }
+    if (!data.message || String(data.message).trim() === "") {
+      errors.message = "Message is required.";
+    }
+    return errors;
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    setFormErrors({});
     const form = e.currentTarget;
     const formData = new FormData(form);
-
-    // Convert FormData to a plain JavaScript object
     const data: Record<string, FormDataEntryValue> = {};
     formData.forEach((value, key) => {
-      // Ensure keys match your Google Sheet headers
       data[key] = value;
     });
-    console.log("Data object before stringify:", formData);
-    console.log("JSON stringified body:", JSON.stringify(formData));
+
+    // Validate form
+    const errors = validateForm(data);
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      setLoading(false);
+      return;
+    }
+
     try {
       await fetch(
         "https://script.google.com/macros/s/AKfycbylV_jvJu3QNYO49AM5TlU4tTj5u1m69sL3pdWvPveUt1yYjDIMGLrM59rC6iBAiYNQ/exec",
         {
           method: "POST",
-          // IMPORTANT: Set Content-Type and mode: 'no-cors'
           headers: {
             "Content-Type": "application/json",
           },
-          body: formData, // Stringify the plain object
-          mode: "no-cors", // Crucial for direct Apps Script calls
+          body: formData,
+          mode: "no-cors",
         }
       );
-
-      // --- Important Note on no-cors ---
-      // When mode: 'no-cors' is used, response.ok will always be true,
-      // and you cannot read the response body (e.g., res.json()).
-      // The request is sent, but you don't get direct confirmation
-      // of success/failure from the Apps Script in the frontend.
-      // You rely on the request being successfully initiated.
-      // If you need direct confirmation, you'd need a proxy server
-      // or a different Google Cloud setup (e.g., Cloud Functions + API Gateway).
-
-      // For this setup, we assume if fetch doesn't throw an error, it's successful.
-      // Any error thrown here will be a network error or a browser-level issue,
-      // not necessarily an error from Apps Script.
-      console.log("Form submission initiated. Check Google Sheet for data.");
-
       setSubmitted(true);
       form.reset();
     } catch (err: unknown) {
-      // This catch block will primarily handle network errors or CORS issues
       let errorMessage = "Failed to send data. Please check your network or try again.";
       if (err instanceof Error) {
         errorMessage = err.message;
@@ -99,25 +118,40 @@ export default function ContactFormSection() {
             <div className={styles.inputGroup}>
               <label className={styles.label}>First Name *</label>
               <input type="text" name="firstName" placeholder="First Name" required />
+              {formErrors.firstName && (
+                <div style={{ color: 'red', fontSize: 13 }}>{formErrors.firstName}</div>
+              )}
             </div>
             <div className={styles.inputGroup}>
               <label className={styles.label}>Last Name *</label>
               <input type="text" name="lastName" placeholder="Last Name" required />
+              {formErrors.lastName && (
+                <div style={{ color: 'red', fontSize: 13 }}>{formErrors.lastName}</div>
+              )}
             </div>
           </div>
           <div className={styles.row}>
             <div className={styles.inputGroup}>
               <label className={styles.label}>Email *</label>
               <input type="email" name="email" placeholder="Email" required />
+              {formErrors.email && (
+                <div style={{ color: 'red', fontSize: 13 }}>{formErrors.email}</div>
+              )}
             </div>
             <div className={styles.inputGroup}>
               <label className={styles.label}>Phone No *</label>
               <input type="tel" name="phone" placeholder="Phone No" required />
+              {formErrors.phone && (
+                <div style={{ color: 'red', fontSize: 13 }}>{formErrors.phone}</div>
+              )}
             </div>
           </div>
           <div className={styles.inputGroup}>
             <label className={styles.label}>Message *</label>
             <textarea name="message" placeholder="Write your message" rows={3} required />
+            {formErrors.message && (
+              <div style={{ color: 'red', fontSize: 13 }}>{formErrors.message}</div>
+            )}
           </div>
           <button type="submit" className={styles.submitBtn} disabled={loading}>
             {loading ? "Submitting..." : "Submit"}
