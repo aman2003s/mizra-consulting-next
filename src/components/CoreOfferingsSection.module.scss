@@ -2,34 +2,25 @@
 @import '../styles/mixins';
 
 .coreOfferings {
-  padding: 50px 0;
   @media (max-width: 600px) {
     padding: 2rem 0.5rem;
   }
   color: $color-white;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .container {
-  display: flex;
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  gap: 4rem;
-  align-items: flex-start;
 }
 
 .textSection {
-  flex: 1;
+  padding: 0 0 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  position: sticky;
-  top: 0;
-  z-index: 10;
 }
 
 .heading {
@@ -51,22 +42,20 @@
 .cardsSection {
   flex: 1;
   position: relative;
-  min-height: 800px;
+  min-height: 68vh;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
 }
 
 .cardsContainer {
   width: 100%;
-  padding: 16px;
   border-radius: 16px;
   background-color: transparent;
-  max-width: 800px;
-  height: 800px;
+  height: 68vh;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: 40px;
   // Hide scrollbar
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -80,6 +69,7 @@
   position: sticky;
   top: 16px;
   width: 100%;
+  max-width: 700px;
   height: 550px;
   margin: 0 auto;
 

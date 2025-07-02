@@ -29,22 +29,7 @@ const offerings = [
 ];
 
 export default function CoreOfferingsSection() {
-  const cardsContainerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (cardsContainerRef.current) {
-      const cardBlock = cardsContainerRef.current;
-      const cardCount = cardBlock.children.length;
-      
-      // Set padding bottom based on number of cards (exactly like the example)
-      cardBlock.style.paddingBottom = `${Math.max(cardCount, 14)}em`;
-      
-      // Set translateY for each card (exactly like the example)
-      Array.from(cardBlock.children).forEach((card, i) => {
-        (card as HTMLElement).style.transform = `translateY(${i*60}px)`;
-      });
-    }
-  }, []);
 
   return (
     <section className={styles.coreOfferings} id="core-offerings">
@@ -64,15 +49,11 @@ export default function CoreOfferingsSection() {
 
         {/* Right side - Cards */}
         <div className={styles.cardsSection}>
-          <div className={styles.cardsContainer} ref={cardsContainerRef}>
+          <div className={styles.cardsContainer}>
             {offerings.map((offering, index) => (
               <div
                 key={index}
-                className={styles.cardWrapper}
-                style={{
-                  maxWidth: `${(500 + index * 40)}px`
-                }}
-              >
+                className={styles.cardWrapper}>
                 <CoreOfferingCard {...offering} />
               </div>
             ))}

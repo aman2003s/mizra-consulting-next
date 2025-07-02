@@ -77,7 +77,7 @@ export default function ContactFormSection() {
       let errorMessage = "Failed to send data. Please check your network or try again.";
       if (err instanceof Error) {
         errorMessage = err.message;
-        console.error("Fetch error:", err);
+      console.error("Fetch error:", err);
       }
       setError(errorMessage);
     } finally {

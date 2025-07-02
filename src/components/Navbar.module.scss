@@ -7,7 +7,8 @@
   justify-content: space-between;
   padding: 40px;
   color: $color-white;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -18,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: $space-md;
+  padding: 20px 32px;
   border-radius: 20px;
   backdrop-filter: blur(24px);
   background: linear-gradient(110deg, rgba(248, 190, 165, 0.01) 23.9%, rgba(252, 221, 157, 0.01) 77.63%);

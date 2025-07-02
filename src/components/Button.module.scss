@@ -28,7 +28,41 @@
   }
 
   .text {
+    overflow: hidden;
+    color: #F8F8FA;
+    text-align: center;
+    font-feature-settings: 'dlig' on;
+    text-overflow: ellipsis;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29.599px;
     white-space: nowrap;
+  }
+
+  // Gradient border fix
+  &.primary {
+    z-index: 1;
+  }
+  &.primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(281deg, #EE5C1F -75.53%, #361B5D 103.47%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  &.primary > * {
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -41,23 +75,25 @@
 }
 
 .md {
-  padding: 16px 40px;
+  padding: 7px 40px;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 29.599px;
 }
 
 .lg {
-  padding: 16px 40px;
+  padding: 7px 40px;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 29.599px;
 }
 
 // Button types
 .primary {
-  background: linear-gradient(281deg, rgba(238, 92, 31, 0.20) -75.53%, rgba(54, 27, 93, 0.20) 103.47%);
-  border: 2px solid #EE5C1F;
+  background: linear-gradient(281deg, rgba(238, 92, 31, 0.15) -75.53%, rgba(54, 27, 93, 0.15) 103.47%);
   color: #F8F8FA;
   transition: background 0.6s, color 0.2s;
+  border-radius: 12px;
+  // Remove border-image and border
+  border: none;
 
   &:hover:not(:disabled) {
     background: linear-gradient(281deg, #EE5C1F -75.53%, #361B5D 103.47%);

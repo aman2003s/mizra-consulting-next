@@ -2,14 +2,17 @@
 @import '../styles/mixins';
 
 .footer {
+  height: 100vh;
   color: $color-white;
-  padding: 2.5rem 1rem 1.5rem 1rem;
   font-size: $font-xs;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .footerContent {
-  max-width: 1200px;
-  margin: 0 auto 2rem auto;
+  margin: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -61,14 +64,16 @@
 
 .tagline {
   color: #F8F8FA;
-  text-align: center;
   font-feature-settings: 'dlig' on;
   font-family: var(--font-source-sans-pro), sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
+  /* 19.2px */
+  text-align: center;
   max-width: 358px;
+  margin: 0 auto;
   opacity: 0.5;
 }
 
@@ -99,15 +104,14 @@
 .navLink {
   color: #FFF;
   font-family: var(--font-source-sans-pro), sans-serif;
-  font-size: 24px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  letter-spacing: 2.4px;
   text-transform: capitalize;
   text-decoration: none;
   transition: color 0.2s;
-  
+
   &:hover {
     color: $color-primary;
   }
@@ -115,20 +119,18 @@
 
 .divider {
   height: 1px;
-  background: #F8F8FA;
-  opacity: 0.5;
-  margin: 2rem auto;
-  max-width: 1200px;
+  margin: 0 40px;
+  padding: 48px 0;
+  border-bottom: 1px solid #F8F8FA50;
 }
 
 .bottomRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  border-top: 1px solid $color-bg;
-  padding-top: 1rem;
+  padding: 48px 40px;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -136,17 +138,18 @@
 .legalLinks {
   display: flex;
   gap: 48px;
+
   a {
     color: #FFF;
     font-family: var(--font-source-sans-pro), sans-serif;
-    font-size: 24px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    letter-spacing: 2.4px;
     text-transform: capitalize;
     text-decoration: none;
     transition: color 0.2s;
+
     &:hover {
       color: $color-primary;
     }
@@ -170,20 +173,39 @@
     gap: 2rem;
     align-items: center;
   }
-  
+
   .logoBlock {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-  
+
   .navigationSection {
     gap: 2rem;
   }
-  
+
   .bottomRow {
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
+    justify-content: space-between;
   }
-} 
+}
+
+@media (max-width: 600px) {
+  .tagline {
+    background: linear-gradient(101deg, #F8AA0B -3.48%, #EE5C1F 102.09%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-feature-settings: 'dlig' on;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    text-align: center;
+    margin: 0 auto;
+    opacity: 1;
+  }
+}

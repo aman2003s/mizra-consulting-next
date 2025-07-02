@@ -1,106 +1,109 @@
 @import '../styles/variables';
 @import '../styles/mixins';
+
 .hero {
-  padding: 50px 0;
+
   @media (max-width: 600px) {
     padding: 2rem 0.5rem;
   }
+
+  justify-content: space-between;
   text-align: center;
   color: $color-white;
-  min-height: 60vh;
+  padding-top: 160px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
+
 .subtitle {
-  background: linear-gradient(101deg, #F8AA0B -3.48%, #EE5C1F 38.29%, #1F014B 102.09%);
+  background: linear-gradient(100deg, #F8AA0B 5.13%, #EE5C1F 136.24%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-family: var(--font-poppins), sans-serif;
+  font-feature-settings: 'dlig' on;
+  font-family: var(--font-source-sans-pro), sans-serif;
   font-size: 24px;
   font-style: italic;
   font-weight: 400;
-  margin-bottom: 1rem;
-  line-height: 1.4;
+  line-height: 60px;
 }
+
 .headlineContainer {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  margin-bottom: 1.5rem;
 }
+
 .headline {
   color: #F8AA0B;
+  text-align: center;
+  font-feature-settings: 'dlig' on;
+  font-family: var(--font-poppins), sans-serif;
   font-size: 48px;
   font-style: normal;
   font-weight: 600;
-  text-align: center;
+  line-height: 60px;
+  text-transform: uppercase;
   letter-spacing: 1px;
   position: relative;
   display: inline-block;
   margin: 0;
 }
+
 .startHereImage {
-  position: relative;
+  position: absolute;
   right: -80px;
   transform: none;
+  top: -35px;
 }
-.underline {
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: -0.3em;
-  width: 100%;
-  height: 0.25em;
-  background: linear-gradient(90deg, $color-primary, $color-secondary);
-  border-radius: 2px;
-  transform-origin: left;
-}
+
 .subheadline {
   color: #F8F8FA;
+  font-feature-settings: 'dlig' on;
   font-family: var(--font-poppins), sans-serif;
-  font-size: 40px;
+  font-size: 48px;
   font-style: normal;
   font-weight: 400;
   text-align: center;
-  margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
+  line-height: 60px;
 }
+
 .description {
   color: #F8F8FA;
   text-align: center;
-  font-family: var(--font-poppins), sans-serif;
-  font-size: 16px;
+  font-family: var(--font-source-sans-pro), sans-serif;
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
-  margin-bottom: 80px;
-  padding-left: 16px;
-  padding-right: 16px;
-  max-width: 800px;
+  line-height: 28px;
+  max-width: 880px;
   margin-left: auto;
   margin-right: auto;
 }
+
 .ctas {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
 }
+
 .marqueeContainer {
-  margin-top: 80px;
   overflow: hidden;
   width: 100%;
 }
+
 .marquee {
   display: flex;
   animation: marquee 20s linear infinite;
   white-space: nowrap;
 }
+
 .marquee span {
   font-feature-settings: 'dlig' on;
   -webkit-text-stroke-width: 4px;
@@ -115,33 +118,56 @@
   color: transparent;
   margin-right: 100px;
 }
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
 }
+
 @media (max-width: 600px) {
   .subtitle {
-    font-size: 18px;
-    margin-bottom: 0.75rem;
+    background: linear-gradient(101deg, #F8AA0B -3.48%, #EE5C1F 102.09%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-feature-settings: 'dlig' on;
+    font-family: var(--font-source-sans-pro), sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
   }
+
   .headline {
-    font-size: 1.5rem;
+    color: #F8AA0B;
+    text-align: center;
+    font-feature-settings: 'dlig' on;
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 60px;
+    text-transform: uppercase;
+    margin: 0;
   }
+
   .startHereImage {
     position: static;
     transform: none;
-    margin-top: 1rem;
   }
+
   .ctas {
     flex-direction: column;
     gap: 1rem;
   }
+
   .marquee span {
     font-size: 40px;
     -webkit-text-stroke-width: 2px;
   }
-} 
+}

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./WhyChooseUsSection.module.scss";
+import whyChooseMizra from "../../public/why-choose-mizra-2.svg";
 
 const points = [
   "Product + Tech + Growth under one roof",
@@ -19,7 +20,7 @@ export default function WhyChooseUsSection() {
         <div className={styles.leftSection}>
           <div className={styles.circleText}>
             <Image
-              src="/why-choose-mizra.svg"
+              src={whyChooseMizra}
               alt="Why choose mizra"
               width={348}
               height={348}

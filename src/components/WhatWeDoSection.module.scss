@@ -1,16 +1,24 @@
 @import '../styles/variables';
 @import '../styles/mixins';
+
 .whatWeDo {
-  padding: 50px 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   @media (max-width: 600px) {
     padding: 2rem 0.5rem;
   }
+
   /* background removed to inherit from body */
   color: $color-white;
   text-align: center;
 }
+
 .heading {
-  background: linear-gradient(87deg, #F8AA0B -5.61%, #EE5C1F 36.18%, #1F014B 100.02%);
+  background: linear-gradient(87deg, #F8AA0B 28.69%, #EE5C1F 64.62%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -22,56 +30,57 @@
   font-weight: 500;
   line-height: 120%;
   text-transform: capitalize;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2rem;
 }
+
 .description {
   color: #FFF;
   font-feature-settings: 'dlig' on;
   font-family: var(--font-source-sans-pro), "Source Sans Pro", sans-serif;
-  font-size: 40px;
+  font-size: 24px;
+  max-width: 980px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
-  margin-bottom: 1.5rem;
-  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
-  
+  margin-bottom: 1rem;
+
   b {
     font-weight: 700;
   }
 }
+
 .subDescription {
   color: #FFF;
   text-align: center;
   font-feature-settings: 'dlig' on;
   font-family: var(--font-source-sans-pro), "Source Sans Pro", sans-serif;
-  font-size: 40px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 400;
   line-height: 120%;
   opacity: 0.5 !important;
   margin-bottom: 1rem;
-  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
 }
+
 .tagline {
   color: #FFF;
   text-align: center;
   font-feature-settings: 'dlig' on, 'liga' on, 'kern' on, 'swsh' on, 'salt' on;
   font-family: var(--font-source-sans-pro), "Source Sans Pro", sans-serif;
-  font-size: 48px;
+  font-size: 24px;
   font-style: italic;
   font-weight: 600;
   line-height: 120%;
   text-transform: capitalize;
-  margin-top: 1rem;
-  max-width: 980px;
   margin-left: auto;
   margin-right: auto;
   letter-spacing: 0.02em;
 }
+
 @media (max-width: 600px) {
   .heading {
     font-size: 32px;
@@ -81,6 +90,7 @@
     -webkit-text-fill-color: transparent;
     font-family: var(--font-poppins), Poppins, sans-serif;
   }
+
   .description {
     font-size: 24px;
     color: #FFF;
@@ -89,11 +99,12 @@
     font-style: normal;
     font-weight: 400;
     line-height: 120%;
-    
+
     b {
       font-weight: 700;
     }
   }
+
   .subDescription {
     font-size: 24px;
     color: #FFF;
@@ -105,6 +116,7 @@
     line-height: 120%;
     opacity: 0.5 !important;
   }
+
   .tagline {
     font-size: 32px;
     color: #FFF;
@@ -117,4 +129,4 @@
     text-transform: capitalize;
     letter-spacing: 0.02em;
   }
-} 
+}

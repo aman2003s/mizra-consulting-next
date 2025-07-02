@@ -22,13 +22,21 @@ export default function Home() {
         height: '500%'
       }} /></div>
 
-      <HeroSection />
-      <WhatWeDoSection />
-      <CoreOfferingsSection />
-      <WhyChooseUsSection />
-      <IndustriesSection />
-      <ContactFormSection />
-      <Footer />
+      <div className={styles.snapContainer}>
+        <div className={styles.snapSection}>
+          <HeroSection />
+          <div className={styles.scrollDownIndicator}>
+            <span className={styles.arrow}>&#8595;</span>
+            <span className={styles.scrollText}>Scroll Down</span>
+          </div>
+        </div>
+        <div className={styles.snapSection}><WhatWeDoSection /></div>
+        <div className={styles.snapSection}><CoreOfferingsSection /></div>
+        <div className={styles.snapSection}><WhyChooseUsSection /></div>
+        <div className={styles.snapSection}><IndustriesSection /></div>
+        <div className={styles.snapSection}><ContactFormSection /></div>
+        <div className={styles.snapSection}><Footer /></div>
+      </div>
     </>
   );
 }

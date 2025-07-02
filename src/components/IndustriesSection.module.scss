@@ -1,17 +1,17 @@
 @import '../styles/variables';
 @import '../styles/mixins';
 .industries {
-  padding: 50px 0;
   @media (max-width: 600px) {
     padding: 2rem 0.5rem;
   }
+  padding-top: 160px;
   color: $color-white;
   text-align: left;
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 400px;
+  height: 100vh;
 
 }
 .purpleBg {

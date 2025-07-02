@@ -181,3 +181,64 @@ a.secondary {
   }
 }
 
+.snapContainer {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+.snapContainer::-webkit-scrollbar {
+  display: none;
+}
+.snapSection {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrollDownIndicator {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 50%;
+  padding: 18px 18px 14px 18px;
+}
+.arrow {
+  font-size: 2.5rem;
+  color: #F8AA0B;
+  animation: bounce 1.2s infinite alternate;
+  margin-bottom: 4px;
+  font-weight: bold;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+}
+.scrollText {
+  color: #FFF;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25), 0 1.5px 8px rgba(0,0,0,0.18);
+  text-align: center;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(18px);
+  }
+}
+
