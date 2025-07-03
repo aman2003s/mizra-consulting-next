@@ -1,7 +1,6 @@
 "use client";
 import { AcademicCapIcon, Cog6ToothIcon, ChartBarIcon, ClipboardDocumentCheckIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 import CoreOfferingCard from "./CoreOfferingCard";
 import styles from "./CoreOfferingsSection.module.scss";
 
