@@ -7,23 +7,43 @@ import styles from "./CoreOfferingsSection.module.scss";
 const offerings = [
   {
     icon: <Cog6ToothIcon width={36} height={36} />,
-    title: "Automation & CRM Solutions",
-    description: "Automate sales, operations, and marketing workflows with Zoho, HubSpot, and more."
+    title: "Product Management Consulting",
+    description: "From discovery to GTM — complete ownership of product vision, roadmap, and execution"
   },
   {
     icon: <AcademicCapIcon width={36} height={36} />,
-    title: "UX/UI Design Audits",
-    description: "Improve experience and conversions through visual and journey optimization."
+    title: "MVP & Roadmap Planning",
+    description: "Validate, design, and deliver your Minimum Viable Product in 21–30 days"
   },
   {
     icon: <ChartBarIcon width={36} height={36} />,
-    title: "MVP & Roadmap Planning",
-    description: "Validate, design, and deliver your Minimum Viable Product in 21-30 days."
+    title: "SaaS Strategy & Platform Setup",
+    description: "Launch SaaS products with the right architecture, tech stack, and GTM funnel"
   },
   {
     icon: <ClipboardDocumentCheckIcon width={36} height={36} />,
-    title: "Product Management Consulting",
-    description: "From discovery to GTM — complete ownership of product vision, roadmap, and execution."
+    title: "UX/UI Design Audits",
+    description: "Improve experience and conversions through visual and journey optimization"
+  },
+  {
+    icon: <ClipboardDocumentCheckIcon width={36} height={36} />,
+    title: "Automation & CRM Solutions",
+    description: "Automate sales, operations, and marketing workflows with Zoho, HubSpot, and more"
+  },
+  {
+    icon: <ClipboardDocumentCheckIcon width={36} height={36} />,
+    title: "Analytics & Tracking Setup",
+    description: "GA4, Mixpanel, MoEngage — end-to-end data flow, funnel tracking, and dashboards"
+  },
+  {
+    icon: <ClipboardDocumentCheckIcon width={36} height={36} />,
+    title: "B2B SaaS Growth Advisory",
+    description: "Help founders define ICPs, pricing models, retention metrics, and user activation"
+  },
+  {
+    icon: <ClipboardDocumentCheckIcon width={36} height={36} />,
+    title: "Platform Building with Teams",
+    description: "Bring your product idea to life using our trusted design-dev partners"
   }
 ];
 
@@ -52,7 +72,7 @@ export default function CoreOfferingsSection() {
             {offerings.map((offering, index) => (
               <div
                 key={index}
-                className={styles.cardWrapper}>
+                className={styles.cardWrapper} >
                 <CoreOfferingCard {...offering} />
               </div>
             ))}
