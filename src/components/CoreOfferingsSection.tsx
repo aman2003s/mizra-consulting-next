@@ -47,6 +47,13 @@ const offerings = [
   }
 ];
 
+const glowColors = [
+  "#1F014B",
+  "#F8AA0B",
+  "#1F014B",
+  "#F06D36"
+];
+
 export default function CoreOfferingsSection() {
 
 
@@ -72,7 +79,9 @@ export default function CoreOfferingsSection() {
             {offerings.map((offering, index) => (
               <div
                 key={index}
-                className={styles.cardWrapper} >
+                className={styles.cardWrapper}
+                style={{ filter: `drop-shadow(0px 0px 10px ${glowColors[index % glowColors.length]})` }}
+              >
                 <CoreOfferingCard {...offering} />
               </div>
             ))}
