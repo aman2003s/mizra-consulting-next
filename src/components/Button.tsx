@@ -1,69 +1,29 @@
-import Link from "next/link";
 import styles from "./Button.module.scss";
 
-type ButtonType = "primary" | "secondary" | "outline" | "ghost";
-type ButtonSize = "sm" | "md" | "lg";
-
 interface ButtonProps {
-  type?: ButtonType;
-  size?: ButtonSize;
-  href?: string;
+  text: string;
   onClick?: () => void;
-  children: React.ReactNode;
-  className?: string;
-  disabled?: boolean;
-  fullWidth?: boolean;
-  icon?: React.ReactNode;
-  iconPosition?: "left" | "right";
-  target?: string;
-  rel?: string;
+  variant?: "primary" | "textWithArrow";
 }
 
-export default function Button({ 
-  type = "primary",
-  size = "md",
-  href,
-  onClick,
-  children,
-  className = "",
-  disabled = false,
-  fullWidth = false,
-  icon,
-  iconPosition = "left",
-  target,
-  rel
-}: ButtonProps) {
-  const buttonClasses = [
-    styles.button,
-    styles[type],
-    styles[size],
-    fullWidth ? styles.fullWidth : "",
-    className
-  ].filter(Boolean).join(" ");
-
-  const content = (
-    <>
-      {icon && iconPosition === "left" && <span className={styles.icon}>{icon}</span>}
-      <span className={styles.text}>{children}</span>
-      {icon && iconPosition === "right" && <span className={styles.icon}>{icon}</span>}
-    </>
-  );
-
-  if (href) {
+export default function Button({ text, onClick, variant = "primary" }: ButtonProps) {
+  if (variant === "textWithArrow") {
     return (
-      <Link href={href} className={buttonClasses} onClick={onClick} target={target} rel={rel}>
-        {content}
-      </Link>
+      <button className={styles.textWithArrow} onClick={onClick}>
+        <span>{text}</span>
+        <span className={styles.arrow}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 5L13 10L7 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M13 10H0" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M13 10H0" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5"/>
+          </svg>
+        </span>
+      </button>
     );
   }
-
   return (
-    <button 
-      className={buttonClasses} 
-      onClick={onClick}
-      disabled={disabled}
-    >
-      {content}
+    <button className={styles.button + ' ' + styles.primary + ' ' + styles.lg} onClick={onClick}>
+      <span className={styles.text}>{text}</span>
     </button>
   );
 } 

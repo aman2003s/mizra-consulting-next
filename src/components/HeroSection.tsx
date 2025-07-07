@@ -56,12 +56,8 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.7 }}
       >
-        <Button type="primary" size="lg" href="#contact">
-          Book Free Consultation
-        </Button>
-        <Button type="primary" size="lg" href="https://wa.me/" target="_blank" rel="noopener">
-          Whatsapp Us
-        </Button>
+        <Button text="Book Free Consultation" />
+        <Button text="WhatsApp Us" />
       </motion.div>
       <motion.div
         className={styles.marqueeContainer}

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./ContactFormSection.module.scss";
+import Button from "./Button";
 
 export default function ContactFormSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -153,9 +154,7 @@ export default function ContactFormSection() {
               <div style={{ color: 'red', fontSize: 13 }}>{formErrors.message}</div>
             )}
           </div>
-          <button type="submit" className={styles.submitBtn} disabled={loading}>
-            {loading ? "Submitting..." : "Submit"}
-          </button>
+          <Button text={loading ? "Submitting..." : "Submit"} />
           {submitted && <div className={styles.thankyou}>Thank you! We&apos;ll be in touch soon.</div>}
           {error && <div style={{ color: 'red', marginTop: 8 }}>{error}</div>}
         </motion.form>

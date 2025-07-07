@@ -179,4 +179,27 @@
   .icon {
     font-size: 2rem;
   }
+}
+
+.cardsScrollOuter {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.autoScroll {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  animation: scrollLeft 20s linear infinite;
+  width: max-content;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 } 

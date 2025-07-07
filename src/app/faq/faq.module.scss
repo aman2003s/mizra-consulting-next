@@ -1,0 +1,72 @@
+.faqPage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #181c23;
+}
+
+.heroSection {
+  padding: 64px 0 32px 0;
+  text-align: center;
+}
+
+.faqAccordionSection {
+  padding: 32px 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contactSection {
+  padding: 48px 0 0 0;
+  text-align: center;
+}
+
+.heroLabel {
+  color: #ffb84d;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.heroTitle {
+  color: #ffc72c;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.heroSubheadline {
+  color: #ffb84d;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.heroDescription {
+  color: #bfc6d1;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contactHeadline {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.contactSubheadline {
+  color: #bfc6d1;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contactInfo {
+  color: #ffc72c;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+} 

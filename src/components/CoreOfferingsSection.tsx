@@ -3,6 +3,7 @@ import { AcademicCapIcon, Cog6ToothIcon, ChartBarIcon, ClipboardDocumentCheckIco
 import { motion } from "framer-motion";
 import CoreOfferingCard from "./CoreOfferingCard";
 import styles from "./CoreOfferingsSection.module.scss";
+import Button from "./Button";
 
 const offerings = [
   {
@@ -71,6 +72,7 @@ export default function CoreOfferingsSection() {
           >
             Our Core Offering
           </motion.h2>
+          <Button text="Learn More" variant="textWithArrow" />
         </div>
 
         {/* Right side - Cards */}

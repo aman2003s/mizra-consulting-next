@@ -28,30 +28,25 @@ export default function IndustriesSection() {
       >
         Industries
       </motion.h2></div>
-      <div className={styles.cardsWrap}>
-        {industries.map((ind, i) => (
-          <motion.div
-            key={i}
-            className={styles.card}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 * i, duration: 0.6 }}
-          >
-            <div className={styles.icon}>🚀</div>
-            <div className={styles.title}>{ind.title}</div>
-            <div className={styles.learnMore}>
-              <span>Learn More</span>
-              <div className={styles.arrowContainer}>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 5L13 10L7 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M13 10H0" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M13 10H0" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5"/>
-                </svg>
+      <div className={styles.cardsScrollOuter}>
+        <div className={styles.autoScroll}>
+          {[...industries, ...industries].map((ind, i) => (
+            <div key={i} className={styles.card}>
+              <div className={styles.icon}>🚀</div>
+              <div className={styles.title}>{ind.title}</div>
+              <div className={styles.learnMore}>
+                <span>Learn More</span>
+                <div className={styles.arrowContainer}>
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 5L13 10L7 15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M13 10H0" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M13 10H0" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5"/>
+                  </svg>
+                </div>
               </div>
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

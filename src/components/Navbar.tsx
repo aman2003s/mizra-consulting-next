@@ -30,9 +30,7 @@ export default function Navbar() {
         </div>
        
         <div className={styles.cta}>
-          <Button type="primary" size="lg" href="#contact">
-            Book a Call
-          </Button>
+          <Button text="Book a Call" />
         </div>
         <button
           className={styles.menuBtn}
@@ -62,14 +60,10 @@ export default function Navbar() {
               <li><Link href="#about" onClick={() => setMenuOpen(false)}>About Us</Link></li>
             </ul>
             <Button 
-              type="primary" 
-              size="lg" 
-              href="#contact" 
+              text="Book a Call"
               onClick={() => setMenuOpen(false)}
               fullWidth
-            >
-              Book a Call
-            </Button>
+            />
           </motion.div>
         )}
       </AnimatePresence>
