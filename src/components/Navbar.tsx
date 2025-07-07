@@ -62,7 +62,6 @@ export default function Navbar() {
             <Button 
               text="Book a Call"
               onClick={() => setMenuOpen(false)}
-              fullWidth
             />
           </motion.div>
         )}
