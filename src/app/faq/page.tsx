@@ -12,7 +12,7 @@ export default function FAQPage() {
         <h1 className={styles.heroTitle}>YOUR QUESTION ANSWERED</h1>
         <div className={styles.heroSubheadline}>Got questions?</div>
         <div className={styles.heroDescription}>
-          We've answered the most common ones to make your decision easier.
+          We&apos;ve answered the most common ones to make your decision easier.
         </div>
       </section>
       <section className={styles.faqAccordionSection}>

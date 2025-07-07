@@ -10,10 +10,10 @@ export default function ContactPage() {
       <Navbar />
       <section className={styles.heroSection}>
         <div>
-          <div className={styles.heroLabel}>Let's turn your</div>
+          <div className={styles.heroLabel}>Let&apos;s turn your</div>
           <h1 className={styles.heroTitle}>VISION INTO DIGITAL REALITY</h1>
           <div className={styles.heroSubheadline}>
-            Talk to Us Whether you're ready to build your MVP, automate business processes, or need clarity on your product roadmap—we're just a message away.
+            Talk to Us Whether you&apos;re ready to build your MVP, automate business processes, or need clarity on your product roadmap—we&apos;re just a message away.
           </div>
           <div className={styles.heroResponseTime}>
             We respond within <span>24 hours</span> on all platforms !
@@ -33,7 +33,7 @@ export default function ContactPage() {
       <section className={styles.strategyCallSection}>
         <div className={styles.strategyHeadline}>Book A Free Strategy Call</div>
         <div className={styles.strategySubheadline}>
-          Schedule A <span>30-Min Zoom Call</span> We'll Understand Your Goals, Propose The Best Approach, And If We're The Right Fit
+          Schedule A <span>30-Min Zoom Call</span> We&apos;ll Understand Your Goals, Propose The Best Approach, And If We&apos;re The Right Fit
         </div>
         <Button text="Share us your details" />
       </section>
