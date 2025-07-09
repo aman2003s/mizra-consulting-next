@@ -125,12 +125,10 @@
 }
 
 @media (max-width: 980px) {
-  .hero{
+  .hero {
     padding-top: 100px;
   }
-  .headlineContainer{
-margin: 0 20px;
-  }
+  
   .subtitle {
     background: linear-gradient(101deg, #f8aa0b -3.48%, #ee5c1f 102.09%);
     -webkit-background-clip: text;
@@ -170,8 +168,10 @@ margin: 0 20px;
   }
 
   .startHereImage {
-    position: static;
-    transform: none;
+    right: -8px;
+    img{
+      width: 102px;
+    }
   }
 
   .ctas {
