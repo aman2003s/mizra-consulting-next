@@ -1,10 +1,7 @@
-@import '../styles/variables';
-@import '../styles/mixins';
+@import "../styles/variables";
+@import "../styles/mixins";
 
 .coreOfferings {
-  @media (max-width: 600px) {
-    padding: 1.5rem 0.5rem;
-  }
   color: $color-white;
   min-height: 100vh;
   display: flex;
@@ -25,14 +22,14 @@
 }
 
 .heading {
-  font-feature-settings: 'dlig' on;
+  font-feature-settings: "dlig" on;
   font-family: var(--font-poppins), Poppins, sans-serif;
   font-size: 48px;
   font-style: normal;
   font-weight: 500;
   line-height: 120%;
   text-transform: capitalize;
-  background: linear-gradient(87deg, #F8AA0B -5.61%, #EE5C1F 100.02%);
+  background: linear-gradient(87deg, #f8aa0b -5.61%, #ee5c1f 100.02%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -63,7 +60,7 @@
   -ms-overflow-style: none;
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 200px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -80,24 +77,24 @@
 
   // Different shadow colors for each card wrapper
   &:nth-child(1) {
-    filter: drop-shadow(0px 0px 10px #1F014B);
+    filter: drop-shadow(0px 0px 10px #1f014b);
   }
 
   &:nth-child(2) {
-    filter: drop-shadow(0px 0px 10px #F8AA0B);
+    filter: drop-shadow(0px 0px 10px #f8aa0b);
   }
 
   &:nth-child(3) {
-    filter: drop-shadow(0px 0px 10px #1F014B);
+    filter: drop-shadow(0px 0px 10px #1f014b);
   }
 
   &:nth-child(4) {
-    filter: drop-shadow(0px 0px 10px #F06D36);
+    filter: drop-shadow(0px 0px 10px #f06d36);
   }
 }
 
 // Responsive design
-@media (max-width: 1200px) {
+@media (max-width: 980px) {
   .container {
     flex-direction: column;
     gap: 1.5rem;
@@ -110,46 +107,22 @@
   }
 
   .heading {
-    font-size: 36px;
-  }
-
-  .cardsContainer {
-    max-width: 600px;
-
+    font-size: 32px;
   }
 
   .cardWrapper {
     width: 100%;
-    max-width: 600px;
-    height: 450px;
-  }
-}
-
-@media (max-width: 768px) {
-  .heading {
-    font-size: 28px;
+    max-width: 298px;
+    height: 234px;
   }
 
   .cardsContainer {
-    max-width: 100%;
+    padding-bottom: 166px;
+    height: 60vh;
   }
 
-  .cardWrapper {
-    width: 100%;
-    height: 400px;
+  .cardsSection {
+    height: 60vh;
   }
 }
 
-@media (max-width: 480px) {
-  .heading {
-    font-size: 24px;
-  }
-
-  .container {
-    gap: 1rem;
-  }
-
-  .cardWrapper {
-    height: 350px;
-  }
-}

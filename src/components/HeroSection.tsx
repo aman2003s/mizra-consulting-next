@@ -14,7 +14,8 @@ export default function HeroSection() {
         transition={{ delay: 0.1, duration: 0.7 }}
         className={styles.subtitle}
       >
-        &ldquo;From Idea to Execution - We Design, Build & Scale Digital Products That Deliver Results&rdquo;
+        &ldquo;From Idea to Execution - We Design, Build & Scale Digital
+        Products That Deliver Results&rdquo;
       </motion.p>
       <div className={styles.headlineContainer}>
         <motion.div
@@ -33,22 +34,25 @@ export default function HeroSection() {
         >
           PRODUCT-LED GROWTH
         </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          className={styles.subheadline}
+        >
+          Build smarter, Automate faster, Scale without limits.
+        </motion.p>
       </div>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.7 }}
-        className={styles.subheadline}
-      >
-        Build smarter, Automate faster, Scale without limits.
-      </motion.p>
+
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.7 }}
         className={styles.description}
       >
-        We partner with startups and enterprises to launch powerful digital products and automate business operations using ERP, CRM, AI, cloud, and modern tech stacks.
+        We partner with startups and enterprises to launch powerful digital
+        products and automate business operations using ERP, CRM, AI, cloud, and
+        modern tech stacks.
       </motion.p>
       <motion.div
         className={styles.ctas}
@@ -56,8 +60,8 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.7 }}
       >
-        <Button text="Book Free Consultation" />
-        <Button text="WhatsApp Us" />
+        <Button text="Book Free Consultation" variant="secondary" />
+        <Button text="WhatsApp Us" variant="secondary" />
       </motion.div>
       <motion.div
         className={styles.marqueeContainer}
@@ -72,4 +76,4 @@ export default function HeroSection() {
       </motion.div>
     </section>
   );
-} 
+}

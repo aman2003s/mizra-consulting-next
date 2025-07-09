@@ -1,10 +1,7 @@
-@import '../styles/variables';
-@import '../styles/mixins';
+@import "../styles/variables";
+@import "../styles/mixins";
 
 .whyChooseUs {
-  @media (max-width: 600px) {
-    padding: 2rem 0.5rem;
-  }
   padding-top: 160px;
   color: $color-white;
   min-height: 100vh;
@@ -62,8 +59,8 @@
   text-align: left;
   li {
     position: relative;
-    color: #F8F8FA;
-    font-feature-settings: 'dlig' on;
+    color: #f8f8fa;
+    font-feature-settings: "dlig" on;
     font-family: var(--font-source-sans-pro), sans-serif;
     font-size: 24px;
     font-style: normal;
@@ -71,15 +68,15 @@
     line-height: 24px;
     margin-bottom: 48px;
     white-space: nowrap;
-    
+
     &::before {
       content: "0" counter(point-counter);
       counter-increment: point-counter;
       position: absolute;
       right: 100%;
       top: -16px;
-      color: #F8F8FA;
-      font-feature-settings: 'dlig' on;
+      color: #f8f8fa;
+      font-feature-settings: "dlig" on;
       font-family: var(--font-source-sans-pro), sans-serif;
       font-size: 16px;
       font-style: normal;
@@ -88,42 +85,33 @@
       margin-right: 4px;
     }
   }
-  
+
   counter-reset: point-counter;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 980px) {
+  .whyChooseUs{
+    padding-top: 80px;
+  }
   .container {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
   }
-  
-  .leftSection {
-    order: 2;
+  .circleText {
+    padding: 0;
   }
-  
-  .rightSection {
-    order: 1;
-    justify-content: center;
-  }
-  
-  .points {
-    text-align: center;
-  }
-}
-
-@media (max-width: 600px) {
   .circleSvg {
     width: 200px;
     height: 200px;
   }
   .points li {
-    font-size: 20px;
-    line-height: 18px;
-    
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 20px;
+
     &::before {
       font-size: 12px;
       line-height: 1;
     }
   }
-} 
+}

@@ -3,7 +3,7 @@ import styles from "./Button.module.scss";
 interface ButtonProps {
   text: string;
   onClick?: () => void;
-  variant?: "primary" | "textWithArrow";
+  variant?: "primary" | "secondary" | "textWithArrow";
 }
 
 export default function Button({ text, onClick, variant = "primary" }: ButtonProps) {
@@ -22,8 +22,8 @@ export default function Button({ text, onClick, variant = "primary" }: ButtonPro
     );
   }
   return (
-    <button className={styles.button + ' ' + styles.primary + ' ' + styles.lg} onClick={onClick}>
-      <span className={styles.text}>{text}</span>
+    <button className={styles.button + ' ' + styles.primary + ' ' + styles.lg + ' '} onClick={onClick}>
+      <span className={styles.text + ' ' + (variant === 'secondary' ? styles.secondary : '')}>{text}</span>
     </button>
   );
 } 

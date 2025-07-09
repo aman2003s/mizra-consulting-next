@@ -81,18 +81,17 @@
   letter-spacing: 0.02em;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 980px) {
+  .whatWeDo{
+    padding: 0 20px;
+  }
   .heading {
     font-size: 32px;
-    background: linear-gradient(87deg, #F8AA0B -5.61%, #EE5C1F 36.18%, #1F014B 100.02%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-family: var(--font-poppins), Poppins, sans-serif;
   }
 
   .description {
-    font-size: 24px;
+    font-size: 16px;
     color: #FFF;
     font-feature-settings: 'dlig' on;
     font-family: var(--font-source-sans-pro), "Source Sans Pro", sans-serif;
@@ -106,7 +105,7 @@
   }
 
   .subDescription {
-    font-size: 24px;
+    font-size: 16px;
     color: #FFF;
     text-align: center;
     font-feature-settings: 'dlig' on;
@@ -118,7 +117,7 @@
   }
 
   .tagline {
-    font-size: 32px;
+    font-size: 24px;
     color: #FFF;
     text-align: center;
     font-feature-settings: 'dlig' on, 'liga' on, 'kern' on, 'swsh' on, 'salt' on;

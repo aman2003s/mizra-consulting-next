@@ -2,9 +2,6 @@
 @import '../styles/mixins';
 
 .contactForm {
-  @media (max-width: 600px) {
-    padding: 2rem 0.5rem;
-  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -174,12 +171,16 @@
   color: $color-accent;
   font-weight: 600;
 }
-@media (max-width: 600px) {
+@media (max-width: 980px) {
+  .contactForm{
+    padding-top: 100px;
+  }
+  .card{
+    padding: 36px;
+    margin: 20px;
+  }
   .heading {
     font-size: 1.25rem;
-  }
-  .form {
-    padding: 1rem 0.5rem;
   }
   .row {
     flex-direction: column;

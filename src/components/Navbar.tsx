@@ -26,23 +26,23 @@ export default function Navbar() {
           <li><Link href="#about">About Us</Link></li>
         </ul>
         <div className={styles.logo}>
-          <Image src={logo} alt="Mizra Logo" width={88} height={60} />
-        </div>
-       
-        <div className={styles.cta}>
-          <Button text="Book a Call" />
+          <Image src={logo} alt="Mizra Logo" />
         </div>
         <button
-          className={styles.menuBtn}
+          className={`${styles.menuBtn} ${menuOpen ? styles.open : ''}`}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           onClick={() => setMenuOpen((v) => !v)}
         >
-          {menuOpen ? (
-            <XMarkIcon width={28} height={28} />
-          ) : (
-            <Bars3Icon width={28} height={28} />
-          )}
+          <span className={styles.hamburger}>
+            <span className={styles.line}></span>
+            <span className={styles.line}></span>
+            <span className={styles.line}></span>
+          </span>
         </button>
+        <div className={styles.cta}>
+          <Button text="Book a Call" />
+        </div>
+
       </div>
       <AnimatePresence>
         {menuOpen && (
@@ -59,10 +59,6 @@ export default function Navbar() {
               <li><Link href="#case-studies" onClick={() => setMenuOpen(false)}>Case Studies</Link></li>
               <li><Link href="#about" onClick={() => setMenuOpen(false)}>About Us</Link></li>
             </ul>
-            <Button 
-              text="Book a Call"
-              onClick={() => setMenuOpen(false)}
-            />
           </motion.div>
         )}
       </AnimatePresence>
