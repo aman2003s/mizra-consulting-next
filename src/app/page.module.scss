@@ -140,41 +140,6 @@ a.secondary {
   }
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
 .snapContainer {
   height: 100vh;
   width: 100vw;
@@ -233,5 +198,39 @@ a.secondary {
   }
   100% {
     transform: translateY(18px);
+  }
+}
+
+
+@media (max-width: 980px) {
+  
+  .scrollDownIndicator {
+    position: absolute;
+    right: 6px;
+    bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 50%;
+    padding: 18px 18px 14px 18px;
+  }
+  .arrow {
+    font-size: 1.5rem;
+    color: #f8aa0b;
+    animation: bounce 1.2s infinite alternate;
+    margin-bottom: 4px;
+    font-weight: bold;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+  }
+  .scrollText {
+    color: #fff;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), 0 1.5px 8px rgba(0, 0, 0, 0.18);
+    text-align: center;
   }
 }

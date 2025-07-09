@@ -11,8 +11,6 @@
   padding-top: 160px;
   width: 100%;
   height: 100vh;
-  
-
 }
 
 .card {
@@ -173,7 +171,9 @@
 }
 @media (max-width: 980px) {
   .contactForm{
-    padding-top: 60px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    justify-content: center;
   }
   .card{
     padding: 36px;

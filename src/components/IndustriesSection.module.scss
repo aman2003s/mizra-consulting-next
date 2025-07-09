@@ -143,7 +143,9 @@
 }
 @media (max-width: 980px) {
   .industries {
-    padding-top: 80px;
+    padding-top: 0px;
+    justify-content: center;
+    padding-bottom: 20px;
   }
   .purpleBg{
     top:-140%;
