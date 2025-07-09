@@ -7,11 +7,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  @media (max-width: 600px) {
-    padding: 2rem 0.5rem;
-  }
-
   /* background removed to inherit from body */
   color: $color-white;
   text-align: center;
