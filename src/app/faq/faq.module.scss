@@ -10,10 +10,64 @@
   text-align: center;
 }
 
-.faqAccordionSection {
-  padding: 32px 0;
-  max-width: 900px;
+.faqContainer {
+  display: flex;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 32px 20px;
+  gap: 40px;
+}
+
+.faqIndex {
+  flex: 0 0 280px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  background: #1f2329;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #333;
+}
+
+.indexTitle {
+  color: #ffc72c;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.indexList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.indexItem {
+  background: none;
+  border: none;
+  color: #bfc6d1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: #2a2f38;
+    color: #ffc72c;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.faqAccordionSection {
+  flex: 1;
+  min-width: 0; // Prevents flex item from overflowing
 }
 
 .contactSection {
@@ -69,4 +123,33 @@
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .faqContainer {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 16px;
+  }
+  
+  .faqIndex {
+    flex: none;
+    position: static;
+    width: 100%;
+  }
+  
+  .indexList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .indexItem {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
 } 
