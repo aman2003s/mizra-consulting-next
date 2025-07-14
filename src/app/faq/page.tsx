@@ -3,10 +3,6 @@ import Footer from "@/components/Footer";
 import styles from "./faq.module.scss";
 import Accordion from "@/components/Accordion";
 import { faqData } from "@/data/faqData";
-import HeroSection from "@/components/HeroSection";
-import Image from "next/image";
-import leftShade from '../../../public/bg-leftShade.svg';
-import rightShade from '../../../public/bg-rightShade.svg';
 
 export default function FAQPage() {
   return (
