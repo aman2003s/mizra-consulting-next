@@ -4,6 +4,9 @@ import './globals.scss'
 import Navbar from '../components/Navbar';
 import Image from "next/image";
 import homeBackground from "../../public/bg-wireframe.svg";
+import leftShade from '../../public/bg-leftShade.svg';
+import rightShade from '../../public/bg-rightShade.svg';
+import styles from './page.module.scss';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,6 +86,14 @@ export default function RootLayout({
         <div className="homeBackgroundImage">
           <Image src={homeBackground} alt="Home Background" />
         </div>
+        <div className={styles.backgroundStaticShadesLeft}><Image src={leftShade} alt="logo" style={{
+          width: '500%',
+          height: '500%'
+        }} /></div>
+        <div className={styles.backgroundStaticShadesRight}><Image src={rightShade} alt="logo" style={{
+          width: '500%',
+          height: '500%'
+        }} /></div>
         <Navbar />
         {children}
       </body>

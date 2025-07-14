@@ -13,15 +13,6 @@ import rightShade from '../../public/bg-rightShade.svg';
 export default function Home() {
   return (
     <>
-      <div className={styles.backgroundStaticShadesLeft}><Image src={leftShade} alt="logo" style={{
-        width: '500%',
-        height: '500%'
-      }} /></div>
-      <div className={styles.backgroundStaticShadesRight}><Image src={rightShade} alt="logo" style={{
-        width: '500%',
-        height: '500%'
-      }} /></div>
-
       <div className={styles.snapContainer}>
         <div className={styles.snapSection}>
           <HeroSection />

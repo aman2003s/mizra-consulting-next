@@ -1,19 +1,14 @@
-"use client";
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./faq.module.scss";
 import Accordion from "@/components/Accordion";
 import { faqData } from "@/data/faqData";
+import HeroSection from "@/components/HeroSection";
+import Image from "next/image";
+import leftShade from '../../../public/bg-leftShade.svg';
+import rightShade from '../../../public/bg-rightShade.svg';
 
 export default function FAQPage() {
-  const scrollToSection = (category: string) => {
-    const element = document.getElementById(`faq-${category.toLowerCase().replace(/\s+/g, '-')}`);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className={styles.faqPage}>
       <Navbar />
@@ -31,23 +26,24 @@ export default function FAQPage() {
           <h3 className={styles.indexTitle}>Quick Navigation</h3>
           <div className={styles.indexList}>
             {faqData.map((category, index) => (
-              <button
+              <a
+                href={`#faq-${category.category.toLowerCase().replace(/\s+/g, '-')}`}
                 key={index}
                 className={styles.indexItem}
-                onClick={() => scrollToSection(category.category)}
               >
                 {category.category}
-              </button>
+              </a>
             ))}
           </div>
         </div>
         
         <div className={styles.faqAccordionSection}>
           {faqData.map((category, index) => (
-            <div
-              key={index}
-              id={`faq-${category.category.toLowerCase().replace(/\s+/g, '-')}`}
-            >
+            <div key={index}>
+              <span
+                id={`faq-${category.category.toLowerCase().replace(/\s+/g, '-')}`}
+                className={styles.faqAnchorSpacer}
+              />
               <Accordion
                 category={category.category}
                 items={category.items}
