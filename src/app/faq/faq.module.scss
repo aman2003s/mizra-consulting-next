@@ -373,5 +373,6 @@
   .gradientBorderTop,
   .gradientBorderBottom {
     height: 75px;
+    filter: blur(50px);
   }
 }
