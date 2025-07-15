@@ -276,7 +276,8 @@
   }
 
   .indexTitle,
-  .hideMobile, .faqIndex {
+  .hideMobile,
+  .faqIndex {
     display: none;
   }
   .heroSubheadline {
@@ -304,7 +305,7 @@
 
   .faqContainer {
     align-items: center;
-    padding: 0 20px ;
+    padding: 0 20px;
   }
 
   .faqIndex {
@@ -364,8 +365,13 @@
     min-height: 100vh;
     height: auto;
   }
-  .faqContainer{
+  .faqContainer {
     align-items: flex-end;
-    justify-content:flex-end ;
+    justify-content: flex-end;
+  }
+
+  .gradientBorderTop,
+  .gradientBorderBottom {
+    height: 75px;
   }
 }
