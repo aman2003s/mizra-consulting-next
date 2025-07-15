@@ -2,6 +2,7 @@
 import React, { useState, useRef, useLayoutEffect } from "react";
 import styles from "./Accordion.module.scss";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 type AccordionItem = {
   question: string;
@@ -15,24 +16,25 @@ type AccordionProps = {
 
 export default function Accordion({ items, category }: AccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // Create refs and heights for all items
+  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [heights, setHeights] = useState<number[]>(() => items.map(() => 0));
+
+  useLayoutEffect(() => {
+    setHeights(
+      items.map((_, idx) =>
+        openIndex === idx && contentRefs.current[idx]
+          ? contentRefs.current[idx]!.scrollHeight
+          : 0
+      )
+    );
+  }, [openIndex, items]);
 
   return (
     <div className={styles.accordion}>
       <h2 className={styles.categoryTitle}>{category}</h2>
       {items.map((item, idx) => {
         const isOpen = openIndex === idx;
-        // Ref and state for measuring content height
-        const contentRef = useRef<HTMLDivElement>(null);
-        const [height, setHeight] = useState(0);
-
-        useLayoutEffect(() => {
-          if (isOpen && contentRef.current) {
-            setHeight(contentRef.current.scrollHeight);
-          } else {
-            setHeight(0);
-          }
-        }, [isOpen]);
-
         return (
           <div key={idx} className={styles.accordionItem}>
             <button
@@ -47,7 +49,7 @@ export default function Accordion({ items, category }: AccordionProps) {
                     : styles.toggleIcon
                 }
               >
-                <img
+                <Image
                   src={
                     isOpen
                       ? "/accordionNegative.svg"
@@ -56,6 +58,7 @@ export default function Accordion({ items, category }: AccordionProps) {
                   alt={isOpen ? "Collapse" : "Expand"}
                   width={20}
                   height={20}
+                  priority
                 />
               </span>
             </button>
@@ -64,13 +67,18 @@ export default function Accordion({ items, category }: AccordionProps) {
                 <motion.div
                   key="content"
                   initial={{ height: 0, opacity: 0 }}
-                  animate={{ height, opacity: 1 }}
+                  animate={{ height: heights[idx], opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ height: { duration: 0.5, ease: [0.4, 0, 0.2, 1] }, opacity: { duration: 0.3 } }}
                   className={styles.answer}
                   style={{ overflow: "hidden" }}
                 >
-                  <div ref={contentRef} className={styles.answerText}>{item.answer}</div>
+                  <div
+                    ref={el => { contentRefs.current[idx] = el; }}
+                    className={styles.answerText}
+                  >
+                    {item.answer}
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
