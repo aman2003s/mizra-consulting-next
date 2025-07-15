@@ -220,7 +220,7 @@
 }
 
 .faqAnchorTarget {
-  scroll-margin-top: 0px; // Adjust if your navbar is a different height
+  scroll-margin-top: 0px; // Desktop
 }
 
 .faqAnchorSpacer {
@@ -229,6 +229,13 @@
   margin-top: -20px; // Negative margin to offset the added height
   pointer-events: none;
   visibility: hidden;
+}
+
+@media (max-width: 980px) {
+  .faqAnchorSpacer {
+    height: 100px; // Increase spacer height for mobile
+    margin-top: -100px;
+  }
 }
 .bgContainer {
   background-color: #131b26;
@@ -268,10 +275,10 @@
     width: 378px;
   }
 
-  .indexTitle,.hideMobile {
+  .indexTitle,
+  .hideMobile, .faqIndex {
     display: none;
   }
-
   .heroSubheadline {
     text-align: center;
     font-feature-settings: "dlig" on;
@@ -296,9 +303,8 @@
   }
 
   .faqContainer {
-    flex-direction: column;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 20px ;
   }
 
   .faqIndex {
@@ -309,22 +315,24 @@
   }
   .faqAccordionSection {
     width: 100%;
-    height: calc(100vh - 124px);
+    height: calc(100vh - 80px);
     flex: unset;
   }
 
   .indexList {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 8px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .indexItem {
     flex: 1;
-    min-width: 120px;
     text-align: center;
-    font-size: 0.9rem;
-    padding: 10px 12px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    padding: 0;
   }
 
   .contactHeadline {
@@ -346,5 +354,18 @@
   }
   .bgContainer {
     height: 442px;
+  }
+  .faqAnchorTarget {
+    scroll-margin-top: 60px; // Adjust to your mobile navbar height
+  }
+  .snapSection,
+  .faqContainer,
+  .contactSection {
+    min-height: 100vh;
+    height: auto;
+  }
+  .faqContainer{
+    align-items: flex-end;
+    justify-content:flex-end ;
   }
 }

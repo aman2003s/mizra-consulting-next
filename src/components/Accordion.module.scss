@@ -88,3 +88,20 @@
   white-space: pre-line;
   padding: 0px 20px 24px;
 }
+
+@media (max-width: 980px) {
+  .categoryTitle {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    margin: 0;
+  }
+  .accordionButton{
+    padding: 18px 12px;
+  }
+  .toggleIcon{
+    width: 20px;
+    height: 20px;
+  }
+}
