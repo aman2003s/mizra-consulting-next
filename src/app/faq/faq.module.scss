@@ -22,13 +22,13 @@
 }
 
 .faqContainer {
-display: flex;
-width: 100%;
-height: 100vh;
-flex-grow: 1;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-grow: 1;
 }
 
-.contentConatiner{
+.contentConatiner {
   max-width: 1260px;
   display: flex;
   flex-grow: 1;
@@ -37,7 +37,6 @@ flex-grow: 1;
   position: relative;
   gap: 40px;
   margin: 0 auto;
-
 }
 
 .faqIndex {
@@ -97,7 +96,6 @@ flex-grow: 1;
   flex: 1;
   height: calc(100vh - 120px);
   overflow-y: auto;
-  width: 80vw;
 }
 
 .faqAccordionSection::-webkit-scrollbar {
@@ -105,8 +103,24 @@ flex-grow: 1;
 }
 
 .contactSection {
-  padding: 48px 0 0 0;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.gradientBorderTop,
+.gradientBorderBottom {
+  left: 0;
+  width: 100%;
+  height: 50px;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(-281deg, #ee5c1f -75.53%, #361b5d 103.47%);
+  filter: blur(75px);
 }
 
 .heroLabel {
@@ -168,23 +182,41 @@ flex-grow: 1;
 }
 
 .contactHeadline {
-  color: #fff;
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  color: #f8f7f8;
+  leading-trim: both;
+  text-edge: cap;
+  font-feature-settings: "dlig" on;
+  font-family: var(--font-source-sans-pro);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 38.4px */
+  text-transform: capitalize;
 }
 
 .contactSubheadline {
-  color: #bfc6d1;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  color: #f8f7f8;
+  text-align: center;
+  font-feature-settings: "dlig" on;
+  font-family: var(--font-source-sans-pro);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 120%; /* 28.8px */
+  text-transform: capitalize;
+  padding: 32px 0 24px;
 }
 
 .contactInfo {
-  color: #ffc72c;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  color: #f8f7f8;
+  text-align: center;
+  font-feature-settings: "dlig" on;
+  font-family: var(--font-source-sans-pro);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 28.8px */
+  text-transform: capitalize;
 }
 
 .faqAnchorTarget {
@@ -198,19 +230,87 @@ flex-grow: 1;
   pointer-events: none;
   visibility: hidden;
 }
+.bgContainer {
+  background-color: #131b26;
+  z-index: 1;
+  overflow: hidden;
+  height: 306px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 // Responsive design
-@media (max-width: 768px) {
-  .faqContainer {
+@media (max-width: 980px) {
+  .heroLabel {
+    color: #f8aa0c;
+    text-align: center;
+    font-feature-settings: "dlig" on;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%; /* 28.8px */
+    text-transform: capitalize;
+    padding-bottom: 48px;
+  }
+
+  .heroTitle {
+    color: #f8aa0b;
+    text-align: center;
+    font-feature-settings: "dlig" on;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 57.6px */
+    text-transform: uppercase;
+    width: 378px;
+  }
+
+  .indexTitle,.hideMobile {
+    display: none;
+  }
+
+  .heroSubheadline {
+    text-align: center;
+    font-feature-settings: "dlig" on;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%; /* 19.2px */
+  }
+
+  .heroDescription {
+    text-align: center;
+    font-feature-settings: "dlig" on;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 120%; /* 19.2px */
+    width: 378px;
+  }
+  .contentConatiner {
+    width: 100%;
     flex-direction: column;
     gap: 24px;
-    padding: 24px 16px;
+  }
+
+  .faqContainer {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
   }
 
   .faqIndex {
     flex: none;
     position: static;
     width: 100%;
+    padding-top: 80px;
+  }
+  .faqAccordionSection {
+    width: 100%;
+    height: calc(100vh - 124px);
+    flex: unset;
   }
 
   .indexList {
@@ -225,5 +325,26 @@ flex-grow: 1;
     text-align: center;
     font-size: 0.9rem;
     padding: 10px 12px;
+  }
+
+  .contactHeadline {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .contactSubheadline {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+  }
+  .contactInfo {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+  }
+  .bgContainer {
+    height: 442px;
   }
 }
