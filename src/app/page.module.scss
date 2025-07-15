@@ -140,6 +140,7 @@ a.secondary {
   }
 }
 
+
 .snapContainer {
   height: 100vh;
   width: 100vw;
@@ -154,6 +155,15 @@ a.secondary {
 .snapContainer::-webkit-scrollbar {
   display: none;
 }
+.snapSection {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
 .snapSection {
   scroll-snap-align: start;
   min-height: 100vh;

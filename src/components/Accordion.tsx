@@ -1,5 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
+import styles from "./Accordion.module.scss";
+import { motion, AnimatePresence } from "framer-motion";
 
 type AccordionItem = {
   question: string;
@@ -15,84 +17,66 @@ export default function Accordion({ items, category }: AccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div style={{ 
-      marginBottom: 32,
-      width: '100%',
-      maxWidth: '100%'
-    }}>
-      <h2 style={{ 
-        color: '#fff', 
-        fontSize: '1.3rem', 
-        fontWeight: 700, 
-        margin: '32px 0 16px 0',
-        width: '100%'
-      }}>
-        {category}
-      </h2>
-      {items.map((item, idx) => (
-        <div 
-          key={idx} 
-          style={{ 
-            borderBottom: '1px solid #333', 
-            marginBottom: 8,
-            width: '100%',
-            overflow: 'hidden'
-          }}
-        >
-          <button
-            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-            style={{
-              width: '100%',
-              background: 'none',
-              border: 'none',
-              color: '#fff',
-              textAlign: 'left',
-              padding: '16px 0',
-              fontSize: '1.05rem',
-              fontWeight: 500,
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              cursor: 'pointer',
-              minHeight: '48px',
-              boxSizing: 'border-box'
-            }}
-          >
-            <span style={{ 
-              flex: 1, 
-              paddingRight: '16px',
-              wordWrap: 'break-word'
-            }}>
-              {item.question}
-            </span>
-            <span style={{ 
-              fontSize: 22, 
-              color: '#bfc6d1',
-              flexShrink: 0,
-              minWidth: '22px',
-              textAlign: 'center'
-            }}>
-              {openIndex === idx ? '-' : '+'}
-            </span>
-          </button>
-          <div 
-            style={{ 
-              color: '#bfc6d1', 
-              padding: '0 0 16px 0', 
-              fontSize: '0.98rem',
-              width: '100%',
-              wordWrap: 'break-word',
-              lineHeight: '1.6'
-            }}
-          >
-            {openIndex === idx && (
-              <div style={{ whiteSpace: 'pre-line' }}>
-                {item.answer}
-              </div>
-            )}
+    <div className={styles.accordion}>
+      <h2 className={styles.categoryTitle}>{category}</h2>
+      {items.map((item, idx) => {
+        const isOpen = openIndex === idx;
+        // Ref and state for measuring content height
+        const contentRef = useRef<HTMLDivElement>(null);
+        const [height, setHeight] = useState(0);
+
+        useLayoutEffect(() => {
+          if (isOpen && contentRef.current) {
+            setHeight(contentRef.current.scrollHeight);
+          } else {
+            setHeight(0);
+          }
+        }, [isOpen]);
+
+        return (
+          <div key={idx} className={styles.accordionItem}>
+            <button
+              onClick={() => setOpenIndex(isOpen ? null : idx)}
+              className={styles.accordionButton}
+            >
+              <span className={styles.question}>{item.question}</span>
+              <span
+                className={
+                  isOpen
+                    ? `${styles.toggleIcon} ${styles.toggleIconRotated}`
+                    : styles.toggleIcon
+                }
+              >
+                <img
+                  src={
+                    isOpen
+                      ? "/accordionNegative.svg"
+                      : "/accordionPositive.svg"
+                  }
+                  alt={isOpen ? "Collapse" : "Expand"}
+                  width={20}
+                  height={20}
+                />
+              </span>
+            </button>
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  key="content"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height, opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ height: { duration: 0.5, ease: [0.4, 0, 0.2, 1] }, opacity: { duration: 0.3 } }}
+                  className={styles.answer}
+                  style={{ overflow: "hidden" }}
+                >
+                  <div ref={contentRef} className={styles.answerText}>{item.answer}</div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
-} 
+}

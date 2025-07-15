@@ -7,6 +7,7 @@ import homeBackground from "../../public/bg-wireframe.svg";
 import leftShade from '../../public/bg-leftShade.svg';
 import rightShade from '../../public/bg-rightShade.svg';
 import styles from './page.module.scss';
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,7 +96,14 @@ export default function RootLayout({
           height: '500%'
         }} /></div>
         <Navbar />
+        <div className={styles.snapContainer}>
+        <div className={styles.scrollDownIndicator}>
+          <span className={styles.arrow}>&#8595;</span>
+          <span className={styles.scrollText}>Scroll Down</span>
+        </div>
         {children}
+        <div className={styles.snapSection}><Footer/></div>
+        </div>
       </body>
     </html>
   );
