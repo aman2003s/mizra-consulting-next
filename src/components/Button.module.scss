@@ -90,33 +90,6 @@
   }
 }
 
-.outline {
-  background: transparent;
-  color: $color-primary;
-  border: 2px solid $color-primary;
-
-  &:hover:not(:disabled) {
-    background: $color-primary;
-    color: $color-bg;
-  }
-}
-
-.ghost {
-  background: transparent;
-  color: $color-white;
-  border: 2px solid transparent;
-
-  &:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-}
-
-// Full width
-.fullWidth {
-  width: 100%;
-}
-
 .textWithArrow {
   display: inline-flex;
   align-items: center;
