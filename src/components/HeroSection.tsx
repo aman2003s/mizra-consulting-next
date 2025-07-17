@@ -5,7 +5,6 @@ import Button from "./Button";
 import Image from "next/image";
 import startHereText from "../../public/start-here-text.svg";
 import { useEffect, useState } from "react";
-import ContactFormSection from "./ContactFormSection";
 import ConsultationFormModal from "./ConsultationFormModal";
 
 export default function HeroSection() {

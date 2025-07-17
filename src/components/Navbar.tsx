@@ -6,7 +6,6 @@ import styles from "./Navbar.module.scss";
 import logo from "../../public/mizra-logo.svg";
 import Image from "next/image";
 import Button from "./Button";
-import ContactFormSection from "./ContactFormSection";
 import ConsultationFormModal from "./ConsultationFormModal";
 
 export default function Navbar() {
