@@ -4,8 +4,23 @@ import styles from "./HeroSection.module.scss";
 import Button from "./Button";
 import Image from "next/image";
 import startHereText from "../../public/start-here-text.svg";
+import { useEffect, useState } from "react";
+import ContactFormSection from "./ContactFormSection";
+import ConsultationFormModal from "./ConsultationFormModal";
 
 export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 786);
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className={styles.hero} id="hero">
       <motion.p
@@ -60,9 +75,29 @@ export default function HeroSection() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.7 }}
       >
-        <Button text="Book Free Consultation" variant="secondary" />
-        <Button text="WhatsApp Us" variant="secondary" />
+        <Button
+          text="Book Free Consultation"
+          variant="secondary"
+          onClick={() => setShowModal(true)}
+        />
+        <Button
+          text={isMobile ? "WhatsApp Us" : "Contact Us"}
+          variant="secondary"
+          width={isMobile ? undefined : "260px"}
+          onClick={() => {
+            if (isMobile) {
+              window.open('https://wa.me/919205710374', '_blank');
+            } else {
+              window.location.href = '/contact';
+            }
+          }}
+        />
       </motion.div>
+      <ConsultationFormModal
+        open={showModal}
+        onClose={() => setShowModal(false)}
+        expert={true}
+      />
       <motion.div
         className={styles.marqueeContainer}
         initial={{ opacity: 0 }}

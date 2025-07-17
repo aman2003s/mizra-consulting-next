@@ -1,5 +1,5 @@
-@import '../styles/variables';
-@import '../styles/mixins';
+@import "../styles/variables";
+@import "../styles/mixins";
 
 .contactForm {
   display: flex;
@@ -13,6 +13,12 @@
   height: 100vh;
 }
 
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card {
   position: relative;
   z-index: 1;
@@ -21,36 +27,36 @@
   max-width: 800px;
   border-radius: 36.573px;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -20px;
     left: -20px;
     right: -20px;
     bottom: -20px;
-    background: linear-gradient(281deg, #EE5C1F -75.53%, #361B5D 103.47%);
+    background: linear-gradient(281deg, #ee5c1f -75.53%, #361b5d 103.47%);
     filter: blur(75px);
     border-radius: 36.573px;
     z-index: -2;
   }
-  
+
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: #111822;
+    background: #131b26;
     border-radius: 36.573px;
     z-index: -1;
   }
 }
 
 .heading {
-  color: #FFF;
+  color: #fff;
   leading-trim: both;
   text-edge: cap;
-  font-feature-settings: 'dlig' on;
+  font-feature-settings: "dlig" on;
   font-family: var(--font-source-sans-pro), sans-serif;
   font-size: 32px;
   font-style: normal;
@@ -59,10 +65,10 @@
   text-transform: capitalize;
 }
 .subheading {
-  color: #FFF;
+  color: #fff;
   leading-trim: both;
   text-edge: cap;
-  font-feature-settings: 'dlig' on;
+  font-feature-settings: "dlig" on;
   font-family: var(--font-source-sans-pro), sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -74,7 +80,6 @@
 .form {
   margin: 0 auto;
   border-radius: 1.5rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
@@ -95,8 +100,8 @@
 }
 
 .label {
-  color: #FFF;
-  font-feature-settings: 'dlig' on;
+  color: #fff;
+  font-feature-settings: "dlig" on;
   font-family: var(--font-source-sans-pro), sans-serif;
   font-size: 24px;
   font-style: normal;
@@ -106,10 +111,43 @@
   text-align: left;
 }
 
+.form select {
+  outline: 0;
+  border: 0;
+  font-size: 16px;
+  line-height: 120%;
+  font-weight: 300;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  background-color: #131b26;
+  font-family: var(--font-source-sans-pro), sans-serif;
+  width: 100%;
+  leading-trim: both;
+  text-edge: cap;
+  font-feature-settings: "dlig" on;
+  font-style: normal;
+  text-transform: lowercase;
+  &::placeholder {
+    color: #fff;
+    leading-trim: both;
+    text-edge: cap;
+    font-feature-settings: "dlig" on;
+    font-family: var(--font-source-sans-pro), sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+    text-transform: capitalize;
+  }
+
+  &:focus {
+    border-bottom-color: #ee5c1f;
+  }
+}
+
 .form input,
 .form textarea {
   background: transparent;
-  color: #FFF;
+  color: #fff;
   border: none;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 0;
@@ -123,15 +161,15 @@
   width: 100%;
   leading-trim: both;
   text-edge: cap;
-  font-feature-settings: 'dlig' on;
+  font-feature-settings: "dlig" on;
   font-style: normal;
   text-transform: lowercase;
-  
+
   &::placeholder {
-    color: #FFF;
+    color: #fff;
     leading-trim: both;
     text-edge: cap;
-    font-feature-settings: 'dlig' on;
+    font-feature-settings: "dlig" on;
     font-family: var(--font-source-sans-pro), sans-serif;
     font-size: 16px;
     font-style: normal;
@@ -139,15 +177,19 @@
     line-height: 120%;
     text-transform: capitalize;
   }
-  
+
   &:focus {
-    border-bottom-color: #EE5C1F;
+    border-bottom-color: #ee5c1f;
   }
 }
 .form .submitBtn {
-  background: linear-gradient(281deg, rgba(238, 92, 31, 0.20) -75.53%, rgba(54, 27, 93, 0.20) 103.47%);
-  border: 2px solid #EE5C1F;
-  color: #F8F8FA;
+  background: linear-gradient(
+    281deg,
+    rgba(238, 92, 31, 0.2) -75.53%,
+    rgba(54, 27, 93, 0.2) 103.47%
+  );
+  border: 2px solid #ee5c1f;
+  color: #f8f8fa;
   border-radius: 12px;
   padding: 16px 40px;
   font-size: 16px;
@@ -158,10 +200,10 @@
   font-family: var(--font-source-sans-pro), sans-serif;
   width: 300px;
   margin: 24px auto 0;
-  
+
   &:hover {
-    background: linear-gradient(281deg, #EE5C1F -75.53%, #361B5D 103.47%);
-    color: #F8F8FA;
+    background: linear-gradient(281deg, #ee5c1f -75.53%, #361b5d 103.47%);
+    color: #f8f8fa;
   }
 }
 .thankyou {
@@ -170,12 +212,12 @@
   font-weight: 600;
 }
 @media (max-width: 980px) {
-  .contactForm{
+  .contactForm {
     padding-top: 0px;
     padding-bottom: 20px;
     justify-content: center;
   }
-  .card{
+  .card {
     padding: 36px;
     margin: 20px;
   }
@@ -186,7 +228,7 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-} 
+}
 
 .form textarea {
   height: 24px;

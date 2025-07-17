@@ -2,17 +2,18 @@ import styles from "./Footer.module.scss";
 import Image from "next/image";
 import mizraLogo from '../../public/mizra-logo.svg';
 import mizraLogoText from '../../public/mizra-text-logo.svg';
+import Link from "next/link";
 
 const navigationLinks = {
   company: [
-    { href: "#about", label: "About Us", key: "about" },
-    { href: "#services", label: "Services", key: "services" },
-    { href: "#case-studies", label: "Case Studies", key: "case-studies" }
+    { href: "/about", label: "About Us", key: "about" },
+    { href: "/services", label: "Services", key: "services" },
+    { href: "/case-studies", label: "Case Studies", key: "case-studies" }
   ],
   support: [
-    { href: "#faq", label: "FAQ", key: "faq" },
-    { href: "#contact", label: "Book A Call", key: "book-call" },
-    { href: "#contact", label: "Contact Us", key: "contact-us" }
+    { href: "/faq", label: "FAQ", key: "faq" },
+    { href: "/contact", label: "Book A Call", key: "book-call" },
+    { href: "/contact", label: "Contact Us", key: "contact-us" }
   ]
 };
 
@@ -55,17 +56,17 @@ export default function Footer() {
           <div className={styles.navColumn}>
             <div className={styles.navTitle}>The Company</div>
             {navigationLinks.company.map(({ href, label, key }) => (
-              <a key={key} href={href} className={styles.navLink}>
+              <Link key={key} href={href} className={styles.navLink}>
                 {label}
-              </a>
+              </Link>
             ))}
           </div>
           <div className={styles.navColumn}>
             <div className={styles.navTitle}>Support</div>
             {navigationLinks.support.map(({ href, label, key }) => (
-              <a key={key} href={href} className={styles.navLink}>
+              <Link key={key} href={href} className={styles.navLink}>
                 {label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -76,9 +77,9 @@ export default function Footer() {
       <div className={styles.bottomRow}>
         <div className={styles.legalLinks}>
           {legalLinks.map(({ href, label, key }) => (
-            <a key={key} href={href}>
+            <Link key={key} href={href}>
               {label}
-            </a>
+            </Link>
           ))}
         </div>
         <div className={styles.copyright}>

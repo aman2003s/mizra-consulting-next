@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import ContactFormSection from "@/components/ContactFormSection";
 import Button from "@/components/Button";
 import styles from "./contact.module.scss";
@@ -39,7 +38,6 @@ export default function ContactPage() {
       </section>
       {/* Contact Form Section */}
       <ContactFormSection />
-      <Footer />
     </div>
   );
 } 

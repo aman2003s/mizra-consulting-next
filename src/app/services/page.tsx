@@ -5,7 +5,6 @@ import styles from "./page.module.scss";
 import ServiceCard from "@/components/ServiceCard";
 import IndustryIconCard from "@/components/IndustryIconCard";
 import ContactFormSection from "@/components/ContactFormSection";
-import Footer from "@/components/Footer";
 import { FaLaptopCode, FaDatabase, FaMobileAlt, FaUserFriends, FaBullhorn, FaGlobe } from "react-icons/fa";
 import { MdOutlineScience, MdOutlineHealthAndSafety, MdOutlineSchool, MdOutlineAttachMoney } from "react-icons/md";
 import { motion } from "framer-motion";

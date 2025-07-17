@@ -75,10 +75,11 @@ export default function ContactFormSection() {
       setSubmitted(true);
       form.reset();
     } catch (err: unknown) {
-      let errorMessage = "Failed to send data. Please check your network or try again.";
+      let errorMessage =
+        "Failed to send data. Please check your network or try again.";
       if (err instanceof Error) {
         errorMessage = err.message;
-      console.error("Fetch error:", err);
+        console.error("Fetch error:", err);
       }
       setError(errorMessage);
     } finally {
@@ -118,16 +119,30 @@ export default function ContactFormSection() {
           <div className={styles.row}>
             <div className={styles.inputGroup}>
               <label className={styles.label}>First Name *</label>
-              <input type="text" name="firstName" placeholder="First Name" required />
+              <input
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                required
+              />
               {formErrors.firstName && (
-                <div style={{ color: 'red', fontSize: 13 }}>{formErrors.firstName}</div>
+                <div style={{ color: "red", fontSize: 13 }}>
+                  {formErrors.firstName}
+                </div>
               )}
             </div>
             <div className={styles.inputGroup}>
               <label className={styles.label}>Last Name *</label>
-              <input type="text" name="lastName" placeholder="Last Name" required />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                required
+              />
               {formErrors.lastName && (
-                <div style={{ color: 'red', fontSize: 13 }}>{formErrors.lastName}</div>
+                <div style={{ color: "red", fontSize: 13 }}>
+                  {formErrors.lastName}
+                </div>
               )}
             </div>
           </div>
@@ -136,27 +151,44 @@ export default function ContactFormSection() {
               <label className={styles.label}>Email *</label>
               <input type="email" name="email" placeholder="Email" required />
               {formErrors.email && (
-                <div style={{ color: 'red', fontSize: 13 }}>{formErrors.email}</div>
+                <div style={{ color: "red", fontSize: 13 }}>
+                  {formErrors.email}
+                </div>
               )}
             </div>
             <div className={styles.inputGroup}>
               <label className={styles.label}>Phone No *</label>
               <input type="tel" name="phone" placeholder="Phone No" required />
               {formErrors.phone && (
-                <div style={{ color: 'red', fontSize: 13 }}>{formErrors.phone}</div>
+                <div style={{ color: "red", fontSize: 13 }}>
+                  {formErrors.phone}
+                </div>
               )}
             </div>
           </div>
           <div className={styles.inputGroup}>
             <label className={styles.label}>Message *</label>
-            <textarea name="message" placeholder="Write your message" rows={3} required />
+            <textarea
+              name="message"
+              placeholder="Write your message"
+              rows={3}
+              required
+            />
             {formErrors.message && (
-              <div style={{ color: 'red', fontSize: 13 }}>{formErrors.message}</div>
+              <div style={{ color: "red", fontSize: 13 }}>
+                {formErrors.message}
+              </div>
             )}
           </div>
-          <Button text={loading ? "Submitting..." : "Submit"} />
-          {submitted && <div className={styles.thankyou}>Thank you! We&apos;ll be in touch soon.</div>}
-          {error && <div style={{ color: 'red', marginTop: 8 }}>{error}</div>}
+          <div className={styles.buttonContainer}>
+            <Button text={loading ? "Submitting..." : "Submit"} />
+          </div>
+          {submitted && (
+            <div className={styles.thankyou}>
+              Thank you! We&apos;ll be in touch soon.
+            </div>
+          )}
+          {error && <div style={{ color: "red", marginTop: 8 }}>{error}</div>}
         </motion.form>
       </div>
     </section>
