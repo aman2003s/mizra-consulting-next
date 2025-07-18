@@ -126,6 +126,7 @@
   font-feature-settings: "dlig" on;
   font-style: normal;
   text-transform: lowercase;
+  color: #fff;
   &::placeholder {
     color: #fff;
     leading-trim: both;
@@ -137,6 +138,9 @@
     font-weight: 300;
     line-height: 120%;
     text-transform: capitalize;
+  }
+  option{
+    color: #fff;
   }
 
   &:focus {
