@@ -299,6 +299,9 @@
 
 // Responsive design
 @media (max-width: 980px) {
+  .reachToUs{
+    padding: 0 20px;
+  }
   .heroLabel {
     color: #f8aa0c;
     text-align: center;
@@ -315,7 +318,7 @@
     color: #f8aa0b;
     text-align: center;
     font-feature-settings: "dlig" on;
-    font-size: 48px;
+    font-size: 32px;
     font-style: normal;
     font-weight: 600;
     line-height: 120%; /* 57.6px */
@@ -328,7 +331,7 @@
   .faqIndex {
     display: none;
   }
-  .heroSubheadline {
+  .heroSubheadline{
     text-align: center;
     font-feature-settings: "dlig" on;
     font-size: 16px;
@@ -337,13 +340,16 @@
     line-height: 120%; /* 19.2px */
   }
 
-  .heroDescription {
+  .heroDescription, .heroSubheadlinePlain  {
     text-align: center;
     font-feature-settings: "dlig" on;
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     line-height: 120%; /* 19.2px */
     width: 378px;
+    span{
+      font-size: 16px;
+    }
   }
   .contentConatiner {
     width: 100%;
