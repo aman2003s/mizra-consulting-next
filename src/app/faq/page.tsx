@@ -4,6 +4,7 @@ import styles from "./faq.module.scss";
 import Accordion from "@/components/Accordion";
 import { faqData } from "@/data/faqData";
 import { motion } from "framer-motion";
+import ContactInfoSection from "@/components/ContactInfoSection";
 
 export default function FAQPage() {
   return (
@@ -59,20 +60,12 @@ export default function FAQPage() {
         </motion.div>
       </motion.div>
       <motion.div className={styles.snapSection} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.6 }}>
-        <motion.div className={styles.contactSection} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.7 }}>
-          <div className={styles.gradientBorderTop} />
-          <div className={styles.bgContainer}>
-            <div className={styles.contactHeadline}>Still Have Question?</div>
-            <div className={styles.contactSubheadline}>
-              Lets Hop On A Quick Call To Adress Your Needs
-            </div>
-            <div className={styles.contactInfo}>
-              <span style={{ fontWeight: 700 }}>+91 92057 10374</span>{" "}<span className={styles.hideMobile}>|</span>{" "}
-              <span style={{ fontWeight: 700 }}>Hello@Mizra.Tech</span>
-            </div>
-          </div>
-          <div className={styles.gradientBorderBottom} />
-        </motion.div>
+        <ContactInfoSection
+          headline="Still Have Question?"
+          subheadline="Lets Hop On A Quick Call To Adress Your Needs"
+          phone="+91 92057 10374"
+          email="Hello@Mizra.Tech"
+        />
       </motion.div>
     </>
   );

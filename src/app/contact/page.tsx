@@ -1,43 +1,85 @@
-import Navbar from "@/components/Navbar";
+"use client";
 import ContactFormSection from "@/components/ContactFormSection";
-import Button from "@/components/Button";
-import styles from "./contact.module.scss";
+import { motion } from "framer-motion";
+import styles from "../faq/faq.module.scss";
+import ContactInfoSection from "@/components/ContactInfoSection";
 
 export default function ContactPage() {
   return (
-    <div className={styles.contactPage}>
-      <Navbar />
-      <section className={styles.heroSection}>
-        <div>
+    <>
+      {/* Hero Section */}
+      <motion.section
+        className={styles.snapSection}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+      >
+        <div className={styles.heroSection}>
           <div className={styles.heroLabel}>Let&apos;s turn your</div>
           <h1 className={styles.heroTitle}>VISION INTO DIGITAL REALITY</h1>
-          <div className={styles.heroSubheadline}>
-            Talk to Us Whether you&apos;re ready to build your MVP, automate business processes, or need clarity on your product roadmap—we&apos;re just a message away.
+          <div className={styles.heroSubheadlinePlain}>
+            Talk to Us Whether you&apos;re ready to build your MVP, automate
+            business processes, or need clarity on your product
+            roadmap—we&apos;re just a message away.
           </div>
-          <div className={styles.heroResponseTime}>
+          <div className={styles.heroDescription}>
             We respond within <span>24 hours</span> on all platforms !
           </div>
         </div>
-      </section>
-      {/* Reach To Us Section Placeholder */}
-      <section className={styles.reachToUsSection}>
-        <h2 className={styles.reachTitle}>Reach To Us</h2>
-        <div className={styles.reachPhone}>+91 92057 10374</div>
-        <div className={styles.reachEmail}>Email@Example.Com</div>
-        <div className={styles.reachAddress}>
-          704, 7th Floor, Palm Court, Mehrauli-Gurgaon Road, Sector 16,Gurugram, Haryana, 122007.
+      </motion.section>
+      <motion.section
+        className={styles.snapSection}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+      >
+        <div className={styles.reachToUs}>
+          <h1 className={styles.heroTitle}>Reach To Us </h1>
+          <div className={styles.contactInfo}>+91 92057 10374</div>
+          <div className={styles.contactDivider}></div>
+          <div className={styles.contactInfo}>email@example.com</div>
+
+          <div className={styles.contactDivider2}></div>
+          <div className={styles.heroSubheadlinePlain} style={{ padding: 0 }}>
+            704, 7th floor, Palm Court, Mehrauli-Gurgaon Road, Sector
+            16,Gurugram, Haryana,122007.
+          </div>
+
+          <div className={styles.contactDivider2}></div>
         </div>
-      </section>
-      {/* Strategy Call Section */}
-      <section className={styles.strategyCallSection}>
-        <div className={styles.strategyHeadline}>Book A Free Strategy Call</div>
-        <div className={styles.strategySubheadline}>
-          Schedule A <span>30-Min Zoom Call</span> We&apos;ll Understand Your Goals, Propose The Best Approach, And If We&apos;re The Right Fit
-        </div>
-        <Button text="Share us your details" />
-      </section>
+      </motion.section>
+      {/* Contact Info Section */}
+      <motion.section
+        className={styles.snapSection}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+      >
+        <ContactInfoSection
+          headline="Book a Free Strategy Call"
+          subheadline={
+            <>
+              Schedule a <strong>30-min Zoom Call</strong> We’ll understand your
+              goals, propose the best approach, and if we’re the right fit
+            </>
+          }
+          buttonText="Share us your details"
+          buttonLink="https://calendly.com/mizra-consulting/30min"
+        />
+      </motion.section>
       {/* Contact Form Section */}
-      <ContactFormSection />
-    </div>
+      <motion.section
+        className={styles.snapSection}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+      >
+        <ContactFormSection />
+      </motion.section>
+    </>
   );
-} 
+}
