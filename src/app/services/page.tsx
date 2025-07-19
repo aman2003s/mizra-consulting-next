@@ -43,7 +43,7 @@ export default function ServicesPage() {
       <motion.section className={styles.snapSection} {...sectionAnim}>
         <div className={styles.heroSection}>
           <div className={styles.heroSubtitle}>Our Services</div>
-          <h1 className={styles.heroTitle}>THE MIRAZ METHOD</h1>
+          <h1 className={styles.heroTitle}>THE MIZRA METHOD</h1>
           <div className={styles.heroDesc}>
             End To End Tech Product & Growth Execution.<br />Build Around Your Business Goals.<br /><br />We focus on holistic product, tech, and growth execution. Our core service categories are designed to help you scale, automate, and grow. The execution covers discovery, build, launch, and scale.
           </div>
