@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Navbar.module.scss";
 import logo from "../../public/mizra-logo.svg";
@@ -11,6 +11,25 @@ import ConsultationFormModal from "./ConsultationFormModal";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
+    };
+  }, [menuOpen]);
 
   return (
     <motion.nav
@@ -49,20 +68,44 @@ export default function Navbar() {
       </div>
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            className={styles.mobileMenu}
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          >
-            <ul>
-              <li><Link href="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
-              <li><Link href="/industries" onClick={() => setMenuOpen(false)}>Industries</Link></li>
-              <li><Link href="/case-studies" onClick={() => setMenuOpen(false)}>Case Studies</Link></li>
-              <li><Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link></li>
-            </ul>
-          </motion.div>
+          <>
+            <motion.div
+              className={styles.overlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setMenuOpen(false)}
+            />
+            <motion.div
+              ref={menuRef}
+              className={styles.mobileMenu}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              <button
+                className={styles.closeBtn}
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <span className={styles.closeIcon}>×</span>
+              </button>
+              <ul>
+                <li><Link href="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
+                <li><Link href="/industries" onClick={() => setMenuOpen(false)}>Industries</Link></li>
+                <li><Link href="/case-studies" onClick={() => setMenuOpen(false)}>Case Studies</Link></li>
+                <li><Link href="/about" onClick={() => setMenuOpen(false)}>About Us</Link></li>
+              </ul>
+              <div className={styles.mobileCta}>
+                <Button text="Request a Free Consultation" onClick={() => {
+                  setShowModal(true);
+                  setMenuOpen(false);
+                }} />
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
       <ConsultationFormModal

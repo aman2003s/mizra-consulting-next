@@ -123,11 +123,15 @@
       border: 0;
       border-bottom: 1px solid #f8bea5;
       padding: 10px 20px;
+      justify-content: space-between;
     }
   }
 
   .logo{
+    position: static;
+    transform: none;
     width: 58px;
+    order: 1;
   }
 
   .links {
@@ -136,7 +140,24 @@
 
   .menuBtn {
     display: block;
+    order: 3;
   }
+
+  .cta {
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 105;
+  cursor: pointer;
 }
 
 .mobileMenu {
@@ -153,6 +174,30 @@
   align-items: flex-start;
   padding: 2.5rem 1.5rem 1.5rem 1.5rem;
   z-index: 110;
+
+  .closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: $color-white;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 2rem;
+    line-height: 1;
+    transition: color 0.2s;
+    z-index: 120;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .closeIcon {
+    display: block;
+    font-weight: 300;
+  }
 
   ul {
     list-style: none;
@@ -175,6 +220,12 @@
         }
       }
     }
+  }
+
+  .mobileCta {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 2rem;
   }
 
   .bookBtn {
