@@ -9,11 +9,13 @@ import ConsultationFormModal from "./ConsultationFormModal";
 
 export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     function handleResize() {
       setIsMobile(window.innerWidth <= 786);
+      setIsTablet(window.innerWidth <= 980);
     }
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -82,7 +84,7 @@ export default function HeroSection() {
         <Button
           text={isMobile ? "WhatsApp Us" : "Contact Us"}
           variant="secondary"
-          width={isMobile ? undefined : "260px"}
+          width={isTablet ? undefined : "260px"}
           onClick={() => {
             if (isMobile) {
               window.open('https://wa.me/919205710374', '_blank');
