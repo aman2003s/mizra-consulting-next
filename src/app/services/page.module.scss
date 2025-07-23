@@ -148,7 +148,20 @@
   margin: 0 auto;
 }
 
+.industriesWrapper{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
 @media (max-width: 980px) {
+  .industriesWrapper{
+    overflow-y: auto;
+    padding: 0 12px;
+  }
+  .industriesWrapper::-webkit-scrollbar{
+    display: none;
+  }
   .heroTitle {
     color: #f8aa0b;
     text-align: center;

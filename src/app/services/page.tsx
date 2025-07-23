@@ -279,6 +279,7 @@ export default function ServicesPage() {
         {...sectionAnim}
         transition={{ ...sectionAnim.transition, delay: 0.2 }}
       >
+        <div className={styles.industriesWrapper}>
         <div className={styles.customSection}>
           <motion.h2
             className={styles.sectionHeading}
@@ -313,6 +314,7 @@ export default function ServicesPage() {
             </motion.div>
           ))}
         </motion.div>
+        </div>
       </motion.section>
 
       {/* Contact Form Section */}
