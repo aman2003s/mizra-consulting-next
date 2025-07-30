@@ -289,7 +289,7 @@ export default function IndustriesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Let's Build For Your Industry
+            Let&apos;s Build For Your Industry
           </motion.h2>
           <motion.p 
             className={styles.buildDescription}
