@@ -172,7 +172,7 @@ export default function IndustriesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
           >
-            Every Industry Has Unique Challenges, And Expectations. At Mizra Consulting, We Tailor Our Strategy, Automation, And Tech Solutions To Meet The Unique Needs Of Your Business — Across Verticals. Whether You're A Startup, SME, Or Enterprise, Our Product-Led, Data-Driven, And Scalable Execution Model Ensures Lasting Impact.
+            Every Industry Has Unique Challenges, And Expectations. At Mizra Consulting, We Tailor Our Strategy, Automation, And Tech Solutions To Meet The Unique Needs Of Your Business — Across Verticals. Whether You&apos;re A Startup, SME, Or Enterprise, Our Product-Led, Data-Driven, And Scalable Execution Model Ensures Lasting Impact.
           </motion.p>
         </div>
       </motion.div>
@@ -253,7 +253,7 @@ export default function IndustriesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            Even if your industry isn't listed, our product-first, automation-ready mindset allows us to tailor scalable solutions for:
+            Even if your industry isn&apos;t listed, our product-first, automation-ready mindset allows us to tailor scalable solutions for:
           </motion.p>
           <div className={styles.agnosticList}>
             {industryAgnosticData.map((item, index) => (
@@ -298,7 +298,7 @@ export default function IndustriesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            Whether You're Trying To Optimize, Digitize, Or Build From Scratch — We Bring Deep Context, Fast Delivery, And Domain-Aligned Solutions.
+            Whether You&apos;re Trying To Optimize, Digitize, Or Build From Scratch — We Bring Deep Context, Fast Delivery, And Domain-Aligned Solutions.
           </motion.p>
           <motion.div 
             className={styles.contactInfo}
